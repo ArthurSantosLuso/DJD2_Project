@@ -1,4 +1,4 @@
-Shader "Custom/OutlineFill"
+Shader "Custom/Outline Fill"
 {
     Properties
     {
@@ -30,7 +30,7 @@ Shader "Custom/OutlineFill"
         }
 
         CGPROGRAM
-        #include "Unity.cginc"
+        #include "UnityCG.cginc"
 
         #pragma vertex vert
         #pragma fragment frag
@@ -44,7 +44,7 @@ Shader "Custom/OutlineFill"
         };
 
         struct v2f{
-            float4 vertex : SV_POSITION;
+            float4 position : SV_POSITION;
             fixed4 color : COLOR;
             UNITY_VERTEX_OUTPUT_STEREO
         };
@@ -61,7 +61,7 @@ Shader "Custom/OutlineFill"
             float3 viewPosition = UnityObjectToViewPos(input.vertex);
             float3 viewNormal = normalize(mul((float3x3)UNITY_MATRIX_IT_MV, normal));
 
-            output.position = unityViewToClipPos(viewPosition + viewNormal * -viewPosition.z * _Width / 1000.0);
+            output.position = UnityViewToClipPos(viewPosition + viewNormal * -viewPosition.z * _Width / 1000.0);
             output.color = _Color;
 
             return output;        

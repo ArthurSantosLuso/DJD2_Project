@@ -1,4 +1,4 @@
-Shader "Custom/OutlineMask"
+Shader "Custom/Outline Mask"
 {
     Properties
     {
@@ -13,7 +13,7 @@ Shader "Custom/OutlineMask"
 
         pass{
             Name "Mask"
-            Cull Offset
+            Cull Off
             ZTest [_ZTest]
             ZWrite Off
             ColorMask 0
