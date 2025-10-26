@@ -7,6 +7,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
+
+// This code need changes... The way it inserts and removes the outline materials are not the way it should be
+// Later on, change it to be 2 lists, one with only the original mesh materials and the other one with original materials and outline materials
+// and everytime the player is in range of interaction, change it to the list with outline and remove when its not in the range.
+
 [DisallowMultipleComponent]
 
 public class Outline : MonoBehaviour
