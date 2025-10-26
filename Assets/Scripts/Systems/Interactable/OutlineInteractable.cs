@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Outline))]
 public class OutlineInteractable : MonoBehaviour, IInteractable
 {
     private Outline outline;
