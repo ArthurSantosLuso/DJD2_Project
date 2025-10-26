@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
-public class first_person_movement : MonoBehaviour
+public class FirstPersonMovement : MonoBehaviour
 {
     [Header("Movement Speeds")]
     [SerializeField] private float walkSpeed = 3.0f;

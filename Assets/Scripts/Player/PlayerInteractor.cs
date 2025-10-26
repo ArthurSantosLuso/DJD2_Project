@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class player_interactor : MonoBehaviour
+public class PlayerInteractor : MonoBehaviour
 {
     [SerializeField] private float interactRange = 5f;
     [SerializeField] private Camera playerCamera;
