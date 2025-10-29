@@ -7,7 +7,7 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private bool debugMode = false;
 
-    private IInteractable currentTarget;
+    private Interactable currentTarget;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerInteractor : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
         {
-            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            if (hit.collider.TryGetComponent<Interactable>(out var interactable))
             {
                 if (interactable != currentTarget)
                 {
@@ -54,7 +54,7 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void SetCurrentTarget(IInteractable newTarget)
+    private void SetCurrentTarget(Interactable newTarget)
     {
         currentTarget = newTarget;
         currentTarget.OnFocus();

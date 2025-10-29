@@ -3,22 +3,30 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Interactable : MonoBehaviour, IInteractable
+[RequireComponent(typeof(OutlineInteractable))]
+public class Interactable : InteractableBase
 {
     [SerializeField]
     private InteractMode interactMode;
 
-    public void OnFocus()
+    private OutlineInteractable interactable;
+
+    private void Awake()
     {
-        return;
+        interactable = GetComponent<OutlineInteractable>();
     }
 
-    public void OnLoseFocus()
+    public override void OnFocus()
     {
-        return;
+        interactable.ActivateOutline();
     }
 
-    public void Interact()
+    public override void OnLoseFocus()
+    {
+        interactable.RemoveOutline();
+    }
+
+    public override void Interact()
     {
         // Implement
         switch (interactMode)
@@ -28,7 +36,7 @@ public class Interactable : MonoBehaviour, IInteractable
                 break;
 
             case InteractMode.Inspect:
-                Debug.Log("Object was Inspected");
+                Debug.Log("Object was inspected");
                 break;
 
             case InteractMode.Use:
