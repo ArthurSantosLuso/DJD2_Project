@@ -17,10 +17,12 @@ public class PlayerInteractor : MonoBehaviour
 
     void Update()
     {
-        DetectInteractable();
+        RaycastHit? hit = DetectInteractable();
+        if (hit.HasValue)
+            DetectInput((RaycastHit)hit);
     }
 
-    private void DetectInteractable()
+    private RaycastHit? DetectInteractable()
     {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (debugMode)
@@ -35,11 +37,21 @@ public class PlayerInteractor : MonoBehaviour
                     ClearCurrentTarget();
                     SetCurrentTarget(interactable);
                 }
-                return;
+                return hit;
             }
         }
 
         ClearCurrentTarget();
+        return null;
+    }
+
+    private void DetectInput(RaycastHit hit)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            hit.collider.TryGetComponent<Interactable>(out var interactable);
+            interactable.Interact();
+        }
     }
 
     private void SetCurrentTarget(IInteractable newTarget)
