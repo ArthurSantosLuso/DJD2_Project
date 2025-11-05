@@ -1,7 +1,8 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 [RequireComponent(typeof(Outline))]
-public class OutlineInteractable : MonoBehaviour, IInteractable
+public class OutlineInteractable : MonoBehaviour
 {
     private Outline outline;
 
@@ -11,14 +12,13 @@ public class OutlineInteractable : MonoBehaviour, IInteractable
         outline.enabled = false;
     }
 
-    public void OnFocus()
+    public void ActivateOutline()
     {
         outline.enabled = true;
     }
 
-    public void OnLoseFocus()
+    public void RemoveOutline()
     {
         outline.enabled = false;
     }
-
 }

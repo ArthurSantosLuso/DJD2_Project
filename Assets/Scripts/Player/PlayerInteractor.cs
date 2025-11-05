@@ -7,7 +7,7 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private bool debugMode = false;
 
-    private IInteractable currentTarget;
+    private Interactable currentTarget;
 
     private void Start()
     {
@@ -17,10 +17,12 @@ public class PlayerInteractor : MonoBehaviour
 
     void Update()
     {
-        DetectInteractable();
+        RaycastHit? hit = DetectInteractable();
+        if (hit.HasValue)
+            DetectInput((RaycastHit)hit);
     }
 
-    private void DetectInteractable()
+    private RaycastHit? DetectInteractable()
     {
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (debugMode)
@@ -28,21 +30,31 @@ public class PlayerInteractor : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
         {
-            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            if (hit.collider.TryGetComponent<Interactable>(out var interactable))
             {
                 if (interactable != currentTarget)
                 {
                     ClearCurrentTarget();
                     SetCurrentTarget(interactable);
                 }
-                return;
+                return hit;
             }
         }
 
         ClearCurrentTarget();
+        return null;
     }
 
-    private void SetCurrentTarget(IInteractable newTarget)
+    private void DetectInput(RaycastHit hit)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            hit.collider.TryGetComponent<Interactable>(out var interactable);
+            interactable.Interact();
+        }
+    }
+
+    private void SetCurrentTarget(Interactable newTarget)
     {
         currentTarget = newTarget;
         currentTarget.OnFocus();
