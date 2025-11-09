@@ -4,70 +4,73 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour
 {
     [SerializeField] private float interactRange = 5f;
-    [SerializeField] private Camera playerCamera;
     [SerializeField] private bool debugMode = false;
 
-    private Interactable currentTarget;
+    private Transform cameraTransform;
+    private Interactive currentTarget;
 
     private void Start()
     {
-        if (playerCamera == null)
-            playerCamera = Camera.main;
+        cameraTransform = GetComponentInChildren<Camera>().transform;
     }
 
     void Update()
     {
-        RaycastHit? hit = DetectInteractable();
-        if (hit.HasValue)
-            DetectInput((RaycastHit)hit);
+        CheckForInteractive();
+        DetectInput();
     }
 
-    private RaycastHit? DetectInteractable()
+    private void CheckForInteractive()
     {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        Ray ray = new Ray(cameraTransform.transform.position, cameraTransform.transform.forward);
         if (debugMode)
             Debug.DrawRay(ray.origin, ray.direction * interactRange, Color.red);
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
-        {
-            if (hit.collider.TryGetComponent<Interactable>(out var interactable))
-            {
-                if (interactable != currentTarget)
-                {
-                    ClearCurrentTarget();
-                    SetCurrentTarget(interactable);
-                }
-                return hit;
-            }
-        }
-
-        ClearCurrentTarget();
-        return null;
+            UpdateCurrentInteractive(hit.collider);
+        else if (currentTarget != null)
+            ClearCurrentTarget();
     }
 
-    private void DetectInput(RaycastHit hit)
+    private void UpdateCurrentInteractive(Collider collider)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        Interactive interactive = collider.GetComponent<Interactive>();
+
+        if (interactive == null || !interactive.isOn)
         {
-            hit.collider.TryGetComponent<Interactable>(out var interactable);
-            interactable.Interact();
+            if (currentTarget != null)
+                ClearCurrentTarget();
+        }
+        else if (interactive != currentTarget)
+            SetCurrentTarget(interactive);
+    }
+
+    //private RaycastHit? DetectInteractable()
+    //{
+
+    //    ClearCurrentTarget();
+    //    return null;
+    //}
+
+    private void DetectInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && currentTarget != null)
+        {
+            //currentTarget.Interact();
         }
     }
 
-    private void SetCurrentTarget(Interactable newTarget)
+    private void SetCurrentTarget(Interactive newTarget)
     {
         currentTarget = newTarget;
-        currentTarget.OnFocus();
+        //currentTarget.OnFocus();
         if (debugMode) Debug.Log("Looking at an interactable");
     }
 
     private void ClearCurrentTarget()
     {
-        if (currentTarget != null)
-        {
-            currentTarget.OnLoseFocus();
-            currentTarget = null;
-            if (debugMode) Debug.Log("Not Looking at an interactable");
-        }
+        //currentTarget.OnLoseFocus();
+        currentTarget = null;
+        if (debugMode) Debug.Log("Not Looking at an interactable");
     }
 }
