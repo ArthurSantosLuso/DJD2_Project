@@ -69,7 +69,7 @@ public class FirstPersonMovement : MonoBehaviour
         float strafeDir = Input.GetAxis("Strafe");
 
         if (forwardDir >= 0f)
-            velocity.z = forwardDir * forwardDir;
+            velocity.z = forwardDir * forwardSpeed;
         else
             velocity.z = forwardDir * backwardSpeed;
 
