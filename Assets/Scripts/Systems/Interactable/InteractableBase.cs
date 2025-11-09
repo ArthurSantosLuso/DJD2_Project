@@ -1,8 +1,17 @@
 using UnityEngine;
 
-public abstract class InteractableBase : MonoBehaviour, IInteractable
+
+public abstract class InteractableBase : MonoBehaviour
 {
-    public abstract void Interact();
-    public abstract void OnFocus();
-    public abstract void OnLoseFocus();
+    //public abstract void Interact();
+
+    protected void OnFocus(OutlineInteractable interactable)
+    {
+        interactable.ActivateOutline();
+    }
+
+    protected void OnLoseFocus(OutlineInteractable interactable)
+    {
+        interactable.RemoveOutline();
+    }
 }

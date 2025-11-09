@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactive : MonoBehaviour
+[RequireComponent(typeof(OutlineInteractable))]
+public class Interactive : InteractableBase
 {
     [SerializeField] private InteractiveData _interactiveData;
 
@@ -12,6 +13,7 @@ public class Interactive : MonoBehaviour
     private Animator            _animator;
     private bool                _requirementsMet;
     private int                 _interactionCount;
+    private OutlineInteractable interactable;
 
     public bool             isOn;
     public InteractiveData  interactiveData => _interactiveData;
@@ -28,6 +30,7 @@ public class Interactive : MonoBehaviour
         _requirementsMet    = _interactiveData.requirements.Length == 0;
         _interactionCount   = 0;
         isOn                = _interactiveData.startsOn;
+        interactable        = GetComponent<OutlineInteractable>();
 
         _interactionManager.RegisterInteractive(this);
     }
@@ -163,5 +166,15 @@ public class Interactive : MonoBehaviour
         requirement.PlayAnimation(_interactionManager.interactAnimationName);
 
         CheckRequirements();
+    }
+
+    public void ApplyFocus()
+    {
+        OnFocus(interactable);
+    }
+
+    public void LoseFocus()
+    {
+        OnLoseFocus(interactable);
     }
 }

@@ -63,13 +63,13 @@ public class PlayerInteractor : MonoBehaviour
     private void SetCurrentTarget(Interactive newTarget)
     {
         currentTarget = newTarget;
-        //currentTarget.OnFocus();
+        currentTarget.ApplyFocus();
         if (debugMode) Debug.Log("Looking at an interactable");
     }
 
     private void ClearCurrentTarget()
     {
-        //currentTarget.OnLoseFocus();
+        currentTarget.LoseFocus();
         currentTarget = null;
         if (debugMode) Debug.Log("Not Looking at an interactable");
     }

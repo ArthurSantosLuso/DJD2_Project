@@ -16,32 +16,32 @@ public class Interactable : InteractableBase
         interactable = GetComponent<OutlineInteractable>();
     }
 
-    public override void OnFocus()
-    {
-        interactable.ActivateOutline();
-    }
+    //public override void OnFocus()
+    //{
+    //    interactable.ActivateOutline();
+    //}
 
-    public override void OnLoseFocus()
-    {
-        interactable.RemoveOutline();
-    }
+    //public override void OnLoseFocus()
+    //{
+    //    interactable.RemoveOutline();
+    //}
 
-    public override void Interact()
-    {
-        // Implement
-        switch (interactMode)
-        {
-            case InteractMode.Collect:
-                Debug.Log("Object was collected");
-                break;
+    //public override void Interact()
+    //{
+    //    // Implement
+    //    switch (interactMode)
+    //    {
+    //        case InteractMode.Collect:
+    //            Debug.Log("Object was collected");
+    //            break;
 
-            case InteractMode.Inspect:
-                Debug.Log("Object was inspected");
-                break;
+    //        case InteractMode.Inspect:
+    //            Debug.Log("Object was inspected");
+    //            break;
 
-            case InteractMode.Use:
-                Debug.Log("Object was used");
-                break;
-        }
-    }
+    //        case InteractMode.Use:
+    //            Debug.Log("Object was used");
+    //            break;
+    //    }
+    //}
 }
