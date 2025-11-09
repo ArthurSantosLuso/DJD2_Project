@@ -209,10 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d423ca16847bcb54697242c065e2b0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
-  strafeSpeed: 2
+  forwardSpeed: 5
+  strafeSpeed: 3
   backwardSpeed: 1.5
-  mouseSensitivity: 2
   maxLookUpRange: 320
   maxLookDownRange: 50
 --- !u!114 &2177769271346492230
@@ -228,5 +227,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 5
-  playerCamera: {fileID: 8010674378081819146}
   debugMode: 1
