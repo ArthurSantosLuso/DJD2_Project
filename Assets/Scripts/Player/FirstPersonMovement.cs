@@ -12,7 +12,6 @@ public class FirstPersonMovement : MonoBehaviour
     [SerializeField] private float backwardSpeed = 3.0f;
 
     [Header("Look Sentting")]
-    [SerializeField] private float mouseSensitivity = 2.0f;
     [SerializeField] private float maxLookUpRange= 290.0f;
     [SerializeField] private float maxLookDownRange = 75.0f;
 
