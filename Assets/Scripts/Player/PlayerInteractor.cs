@@ -45,13 +45,6 @@ public class PlayerInteractor : MonoBehaviour
             SetCurrentTarget(interactive);
     }
 
-    //private RaycastHit? DetectInteractable()
-    //{
-
-    //    ClearCurrentTarget();
-    //    return null;
-    //}
-
     private void DetectInput()
     {
         if (Input.GetKeyDown(KeyCode.E) && currentTarget != null)
