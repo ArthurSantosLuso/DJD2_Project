@@ -1,4 +1,5 @@
 using System.Globalization;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -18,6 +19,8 @@ public class FirstPersonMovement : MonoBehaviour
     private Transform head;
     private Vector3 headRotation;
     private CharacterController characterController;
+    private Vector3 velocity;
+    private Vector3 motion;
 
 
     private void Start()
@@ -56,18 +59,29 @@ public class FirstPersonMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleMovement();
+        HandleMovementInput();
+        MovePlayer();
     }
 
-    private void HandleMovement()
+    private void HandleMovementInput()
     {
-        float verticalSpeed = Input.GetAxis("Forward") * forwardSpeed;
-        float horizontalSpeed = Input.GetAxis("Strafe") * forwardSpeed;
+        float forwardDir = Input.GetAxis("Forward");
+        float strafeDir = Input.GetAxis("Strafe");
 
-        Vector3 speed = new Vector3(horizontalSpeed, 0, verticalSpeed);
-        speed = transform.rotation * speed;
+        if (forwardDir >= 0f)
+            velocity.z = forwardDir * forwardDir;
+        else
+            velocity.z = forwardDir * backwardSpeed;
 
-        characterController.SimpleMove(speed);
+        velocity.x = strafeDir * strafeSpeed;
+    }
+
+    private void MovePlayer()
+    {
+        motion = velocity * Time.fixedDeltaTime;
+        motion = transform.TransformVector(motion);
+        
+        characterController.Move(motion);
     }
 
 }
