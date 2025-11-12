@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public abstract class InteractableBase : MonoBehaviour
 {
     protected void OnFocus(OutlineInteractable interactable)

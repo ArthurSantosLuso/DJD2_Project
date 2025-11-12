@@ -1,7 +1,4 @@
-using System.Globalization;
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonMovement : MonoBehaviour
