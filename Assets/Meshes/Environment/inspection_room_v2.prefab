@@ -8853,7 +8853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7987841342578837642}
   m_Layer: 0
-  m_Name: pCube1 (1)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
