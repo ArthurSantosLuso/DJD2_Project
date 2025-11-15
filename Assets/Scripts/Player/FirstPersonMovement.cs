@@ -1,3 +1,4 @@
+using UnityEditor.Timeline;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -7,6 +8,7 @@ public class FirstPersonMovement : MonoBehaviour
     [SerializeField] private float forwardSpeed = 3.0f;
     [SerializeField] private float strafeSpeed = 3.0f;
     [SerializeField] private float backwardSpeed = 3.0f;
+    [SerializeField] private float verticalVelocity = 0f;
 
     [Header("Look Sentting")]
     [SerializeField] private float maxLookUpRange= 290.0f;
@@ -74,10 +76,16 @@ public class FirstPersonMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        motion = velocity * Time.fixedDeltaTime;
+        if (characterController.isGrounded)
+            verticalVelocity = -1f;
+        else
+            verticalVelocity += Physics.gravity.y * Time.deltaTime;
+
+        motion = velocity;
         motion = transform.TransformVector(motion);
+        motion.y = verticalVelocity;
         
-        characterController.Move(motion);
+        characterController.Move(motion * Time.deltaTime);
     }
 
 }
