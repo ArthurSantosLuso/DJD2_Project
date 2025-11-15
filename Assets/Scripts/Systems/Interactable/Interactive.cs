@@ -94,6 +94,8 @@ public class Interactive : InteractableBase
             DoDirectInteraction();
         else if (IsType(InteractiveData.Type.Indirect))
             PlayAnimation(_interactionManager.interactAnimationName);
+        else if (IsType(InteractiveData.Type.PickInspect))
+            TiggerInspection();
     }
 
     private void PickUpInteractive()
@@ -166,6 +168,11 @@ public class Interactive : InteractableBase
         requirement.PlayAnimation(_interactionManager.interactAnimationName);
 
         CheckRequirements();
+    }
+
+    private void TiggerInspection()
+    {
+
     }
 
     public void ApplyFocus()
