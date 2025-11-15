@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactive : InteractableBase
 {
     [SerializeField] private InteractiveData _interactiveData;
+    [SerializeField] private InspectionSystem _inspector;
 
     private InteractionManager  _interactionManager;
     private PlayerInventory     _playerInventory;
@@ -172,7 +173,7 @@ public class Interactive : InteractableBase
 
     private void TiggerInspection()
     {
-
+        _inspector.InspectObject(gameObject.transform);
     }
 
     public void ApplyFocus()

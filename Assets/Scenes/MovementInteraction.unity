@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 251672040}
   - component: {fileID: 251672041}
   - component: {fileID: 251672043}
-  - component: {fileID: 251672044}
   m_Layer: 0
   m_Name: Cube Inspect
   m_TagString: Untagged
@@ -225,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 251672035}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8156595, y: 0.65, z: 0.21}
+  m_LocalPosition: {x: 4.42, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -298,34 +297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: 117ddb7995c07c248b15916ce10ad717, type: 2}
+  _inspector: {fileID: 1431011860}
   isOn: 0
---- !u!54 &251672044
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 251672035}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &540923667
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &540923669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: 8c345398247b23c449c18f781968ff35, type: 2}
+  _inspector: {fileID: 0}
   isOn: 0
 --- !u!1 &839146537
 GameObject:
@@ -526,7 +500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &839146539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: 8c345398247b23c449c18f781968ff35, type: 2}
+  _inspector: {fileID: 0}
   isOn: 0
 --- !u!1 &986949618
 GameObject:
@@ -849,6 +824,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
+--- !u!114 &1431011860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2456804062524754793, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+  m_PrefabInstance: {fileID: 7253466739121462188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c634aa49c3d2a4aa0395edd9384d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996881883
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,9 +46,9 @@ public class PlayerInteractor : MonoBehaviour
 
     private void DetectInput()
     {
-        if (Input.GetKeyDown(KeyCode.E) && currentTarget != null)
+        if (Input.GetKeyDown(KeyCode.F) && currentTarget != null)
         {
-            //currentTarget.Interact();
+            currentTarget.Interact();
         }
     }
 
