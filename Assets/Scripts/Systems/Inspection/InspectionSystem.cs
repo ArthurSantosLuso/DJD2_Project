@@ -8,7 +8,8 @@ public class InspectionSystem : MonoBehaviour
     [SerializeField] private GameObject firstPlane;
 
     private FirstPersonMovement playerMovement;
-    private Transform objectToInspect;
+    private Transform objectClone;
+    private GameObject originalObject;
     private Vector3 previousMousePosition;
     private bool isInspecting = false;
 
@@ -23,7 +24,11 @@ public class InspectionSystem : MonoBehaviour
             return;
 
         if (Input.GetKeyDown(KeyCode.E))
+        {
             StopInspection();
+            originalObject.SetActive(true);
+            originalObject = null;
+        }
 
         HandleObjectRotation();
     }
@@ -50,10 +55,11 @@ public class InspectionSystem : MonoBehaviour
         firstPlane.SetActive(false);
 
         // Destroy old inspected clone
-        if (objectToInspect != null)
-            Destroy(objectToInspect.gameObject);
+        if (objectClone != null)
+            Destroy(objectClone.gameObject);
 
-        objectToInspect = null;
+        objectClone = null;
+
     }
 
     public void InspectObject(GameObject target)
@@ -61,19 +67,21 @@ public class InspectionSystem : MonoBehaviour
         if (isInspecting)
             StopInspection();
 
-
+        originalObject = target;
         StartInspection();
 
-        objectToInspect = Instantiate(target, firstPlane.transform).transform;
+        objectClone = Instantiate(target, firstPlane.transform).transform;
+        originalObject.SetActive(false);
 
-        objectToInspect.localPosition = Vector3.zero;
-        objectToInspect.localRotation = Quaternion.identity;
+
+        objectClone.localPosition = Vector3.zero;
+        objectClone.localRotation = Quaternion.identity;
 
     }
 
     private void HandleObjectRotation()
     {
-        if (objectToInspect == null)
+        if (objectClone == null)
             return;
 
         if (Input.GetMouseButtonDown(0))
@@ -86,8 +94,8 @@ public class InspectionSystem : MonoBehaviour
             float rotX = delta.y * rotationSpeed * Time.deltaTime;
             float rotY = -delta.x * rotationSpeed * Time.deltaTime;
 
-            objectToInspect.Rotate(this.transform.up, rotY, Space.World);
-            objectToInspect.Rotate(this.transform.right, rotX, Space.World);
+            objectClone.Rotate(this.transform.up, rotY, Space.World);
+            objectClone.Rotate(this.transform.right, rotX, Space.World);
 
             previousMousePosition = Input.mousePosition;
 
