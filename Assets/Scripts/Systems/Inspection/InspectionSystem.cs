@@ -56,14 +56,13 @@ public class InspectionSystem : MonoBehaviour
         objectToInspect = null;
     }
 
-    public void InspectObject(Transform target)
+    public void InspectObject(GameObject target)
     {
         if (isInspecting)
             StopInspection();
 
 
         StartInspection();
-
 
         objectToInspect = Instantiate(target, firstPlane.transform).transform;
 

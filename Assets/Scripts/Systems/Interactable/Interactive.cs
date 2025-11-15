@@ -5,33 +5,33 @@ using UnityEngine;
 public class Interactive : InteractableBase
 {
     [SerializeField] private InteractiveData _interactiveData;
-    [SerializeField] private InspectionSystem _inspector;
+    //[SerializeField] private InspectionSystem _inspector;
 
-    private InteractionManager  _interactionManager;
-    private PlayerInventory     _playerInventory;
-    private List<Interactive>   _requirements;
-    private List<Interactive>   _dependents;
-    private Animator            _animator;
-    private bool                _requirementsMet;
-    private int                 _interactionCount;
+    private InteractionManager _interactionManager;
+    private PlayerInventory _playerInventory;
+    private List<Interactive> _requirements;
+    private List<Interactive> _dependents;
+    private Animator _animator;
+    private bool _requirementsMet;
+    private int _interactionCount;
     private OutlineInteractable interactable;
 
-    public bool             isOn;
-    public InteractiveData  interactiveData => _interactiveData;
-    public string           inventoryName   => _interactiveData.inventoryName;
-    public Sprite           inventoryIcon   => _interactiveData.inventoryIcon;
+    public bool isOn;
+    public InteractiveData interactiveData => _interactiveData;
+    public string inventoryName => _interactiveData.inventoryName;
+    public Sprite inventoryIcon => _interactiveData.inventoryIcon;
 
     void Awake()
     {
         _interactionManager = InteractionManager.instance;
-        _playerInventory    = _interactionManager.playerInventory;
-        _requirements       = new List<Interactive>();
-        _dependents         = new List<Interactive>();
-        _animator           = GetComponent<Animator>();
-        _requirementsMet    = _interactiveData.requirements.Length == 0;
-        _interactionCount   = 0;
-        isOn                = _interactiveData.startsOn;
-        interactable        = GetComponent<OutlineInteractable>();
+        _playerInventory = _interactionManager.playerInventory;
+        _requirements = new List<Interactive>();
+        _dependents = new List<Interactive>();
+        _animator = GetComponent<Animator>();
+        _requirementsMet = _interactiveData.requirements.Length == 0;
+        _interactionCount = 0;
+        isOn = _interactiveData.startsOn;
+        interactable = GetComponent<OutlineInteractable>();
 
         _interactionManager.RegisterInteractive(this);
     }
@@ -128,12 +128,12 @@ public class Interactive : InteractableBase
     {
         foreach (Interactive requirement in _requirements)
         {
-            if (!requirement._requirementsMet || 
+            if (!requirement._requirementsMet ||
                (!requirement.IsType(InteractiveData.Type.Indirect) && requirement._interactionCount == 0))
-               {
-                    _requirementsMet = false;
-                    return;
-               }
+            {
+                _requirementsMet = false;
+                return;
+            }
         }
 
         _requirementsMet = true;
@@ -148,7 +148,7 @@ public class Interactive : InteractableBase
             if (dependent.IsType(InteractiveData.Type.Indirect) && dependent._requirementsMet)
                 dependent.InteractSelf(false);
     }
- 
+
     private void PlayAnimation(string animation)
     {
         if (_animator != null)
@@ -173,7 +173,8 @@ public class Interactive : InteractableBase
 
     private void TiggerInspection()
     {
-        _inspector.InspectObject(gameObject.transform);
+        InteractionManager.instance.inspectionSystem.InspectObject(gameObject);
+        //_inspector.InspectObject(gameObject.transform);
     }
 
     public void ApplyFocus()

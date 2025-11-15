@@ -297,7 +297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: 117ddb7995c07c248b15916ce10ad717, type: 2}
-  _inspector: {fileID: 1431011860}
   isOn: 0
 --- !u!1 &540923667
 GameObject:
@@ -477,7 +476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: 8c345398247b23c449c18f781968ff35, type: 2}
-  _inspector: {fileID: 0}
   isOn: 0
 --- !u!1 &839146537
 GameObject:
@@ -657,7 +655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: 8c345398247b23c449c18f781968ff35, type: 2}
-  _inspector: {fileID: 0}
   isOn: 0
 --- !u!1 &986949618
 GameObject:
@@ -819,6 +816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractionManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
+      propertyPath: _inspect
+      value: 
+      objectReference: {fileID: 1431011860}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
