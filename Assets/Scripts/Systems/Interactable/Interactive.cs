@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactive : InteractableBase
 {
     [SerializeField] private InteractiveData _interactiveData;
-    //[SerializeField] private InspectionSystem _inspector;
+    [SerializeField] private AudioClip interactionSound;
 
     private InteractionManager _interactionManager;
     private PlayerInventory _playerInventory;
@@ -174,6 +174,7 @@ public class Interactive : InteractableBase
     private void TiggerInspection()
     {
         InteractionManager.instance.inspectionSystem.InspectObject(gameObject);
+        AudioManager.Instance.PlaySound(interactionSound);
         //_inspector.InspectObject(gameObject.transform);
     }
 
