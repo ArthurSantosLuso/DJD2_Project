@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   startsOn: 1
   inventoryName: Severed Arm
-  inventoryIcon: {fileID: 21300000, guid: 1ea10c0f473101140bbadef5f1a70002, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 1c0e71419a366104f81519af08d5bcc5, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages:
