@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &178397322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3834045671808663204, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+  m_PrefabInstance: {fileID: 7253466739121462188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &178397327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178397322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a74e2d1b1d986468310325e3bc960c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiManager: {fileID: 8247334331369256615}
 --- !u!1 &197950708
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactiveData: {fileID: 11400000, guid: ff0d54674c1997143aa4362fed8bed10, type: 2}
-  interactionSound: {fileID: 0}
+  interactionSound: {fileID: 8300000, guid: f518f96e409736e43b884c981eea6f68, type: 3}
   isOn: 0
 --- !u!1 &839146537
 GameObject:
@@ -867,6 +885,10 @@ PrefabInstance:
       propertyPath: _inspect
       value: 
       objectReference: {fileID: 1431011860}
+    - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
+      propertyPath: _playerInventory
+      value: 
+      objectReference: {fileID: 178397327}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2099,6 +2121,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2177769271346492230, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+      propertyPath: interactRange
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3834045671808663204, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2161,7 +2187,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3869971250590662277, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2031311250}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3834045671808663204, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 178397327}
   m_SourcePrefab: {fileID: 100100000, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
 --- !u!224 &7347748801597693354
 RectTransform:
@@ -2518,8 +2547,8 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 5259994908532939220}
   - {fileID: 1193118119}
+  - {fileID: 5259994908532939220}
   - {fileID: 197950710}
   - {fileID: 1996881885}
   - {fileID: 986949622}

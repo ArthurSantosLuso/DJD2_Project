@@ -5,13 +5,13 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private UIManager _uiManager;
 
-    private PlayerInteraction   _playerInteraction;
+    private PlayerInteractor _playerInteractor;
     private List<Interactive>   _inventory;
     private int                 _selectedSlotIndex;
 
     void Start()
     {
-        _playerInteraction  = GetComponent<PlayerInteraction>();
+        _playerInteractor  = GetComponent<PlayerInteractor>();
         _inventory          = new List<Interactive>();
         _selectedSlotIndex  = -1;
     }
@@ -55,7 +55,7 @@ public class PlayerInventory : MonoBehaviour
 
         _uiManager.SelectInventorySlot(index);
 
-        _playerInteraction.RefreshCurrentInteractive();
+        _playerInteractor.RefreshCurrentInteractive();
     }
 
     public string GetSelectedInteractionMessage()
