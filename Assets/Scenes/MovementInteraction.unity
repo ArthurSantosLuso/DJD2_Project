@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &251672036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 540923669}
   - component: {fileID: 540923675}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Cube Pick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7949696358a27fa49994b8b6efe3cdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveData: {fileID: 11400000, guid: 8c345398247b23c449c18f781968ff35, type: 2}
+  _interactiveData: {fileID: 11400000, guid: ff0d54674c1997143aa4362fed8bed10, type: 2}
   interactionSound: {fileID: 0}
   isOn: 0
 --- !u!1 &839146537
@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &839146539
 MonoBehaviour:
   m_ObjectHideFlags: 0
