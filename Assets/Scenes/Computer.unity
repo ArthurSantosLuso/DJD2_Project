@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.50000095}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117255534
@@ -612,6 +612,14 @@ PrefabInstance:
       propertyPath: _playerInventory
       value: 
       objectReference: {fileID: 882550193}
+    - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
+      propertyPath: _awakeAnimationName
+      value: Awake
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
+      propertyPath: _interactAnimationName
+      value: Interact
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -955,15 +963,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 4.1
+  m_fontSizeBase: 4.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1034,7 +1042,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732697369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10.7}
+  m_LocalPosition: {x: 0, y: 0, z: -3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1044,7 +1052,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.9, y: -4}
-  m_SizeDelta: {x: 89.15, y: 22}
+  m_SizeDelta: {x: 47.52, y: 13.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732697371
 MonoBehaviour:
@@ -1491,7 +1499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1122502041}
   - component: {fileID: 1122502042}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1528,7 +1536,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1552,7 +1560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1420429371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1721,6 +1729,7 @@ GameObject:
   - component: {fileID: 6522371065333501829}
   - component: {fileID: 6522371065333501828}
   - component: {fileID: 6522371065333501831}
+  - component: {fileID: 6522371065333501832}
   m_Layer: 0
   m_Name: computer1
   m_TagString: Untagged
@@ -1740,7 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7949696358a27fa49994b8b6efe3cdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactiveData: {fileID: 11400000, guid: 117ddb7995c07c248b15916ce10ad717, type: 2}
+  _interactiveData: {fileID: 11400000, guid: e5afdbf45c5618148b0223b752a81afb, type: 2}
   interactionSound: {fileID: 0}
   isOn: 0
 --- !u!114 &6522371065333501829
@@ -1915,16 +1924,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.0000002, y: 1.0000006, z: 1.0000002}
   m_Center: {x: 0.50000024, y: 0.4999999, z: -0.5000001}
+--- !u!95 &6522371065333501832
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522371065333501827}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88f3a20d38b878844a864993a740a663, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 404079730}
   - {fileID: 632575715}
   - {fileID: 559829803}
   - {fileID: 509378160}
@@ -1932,4 +1964,3 @@ SceneRoots:
   - {fileID: 5126651138219926940}
   - {fileID: 910362783}
   - {fileID: 316041716}
-  - {fileID: 404079730}
