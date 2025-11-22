@@ -94,7 +94,7 @@ public class FirstPersonMovement : MonoBehaviour
         
         characterController.Move(motion * Time.deltaTime);
 
-        HandleFootsteps();
+        //HandleFootsteps();
 
     }
 
