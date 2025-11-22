@@ -587,9 +587,11 @@ MonoBehaviour:
   forwardSpeed: 5
   strafeSpeed: 3
   backwardSpeed: 2
-  verticalVelocity: -1
+  verticalVelocity: 2.5
   maxLookUpRange: 320
   maxLookDownRange: 50
+  footstepsRegular: {fileID: 0}
+  footstepSFXInterval: 1
 --- !u!114 &2177769271346492230
 MonoBehaviour:
   m_ObjectHideFlags: 0
