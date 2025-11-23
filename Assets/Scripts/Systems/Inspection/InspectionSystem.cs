@@ -11,6 +11,7 @@ public class InspectionSystem : MonoBehaviour
     private GameObject  originalObject;
     private Vector3     previousMousePosition;
     private bool        isInspecting = false;
+    private bool        isInspectingFromInventory = false;
 
     private void Update()
     {
@@ -20,8 +21,6 @@ public class InspectionSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             StopInspection();
-            originalObject.SetActive(true);
-            originalObject = null;
         }
 
         HandleObjectRotation();
@@ -46,13 +45,18 @@ public class InspectionSystem : MonoBehaviour
             Destroy(objectClone.gameObject);
 
         objectClone = null;
+
+        if (!isInspectingFromInventory)
+            originalObject.SetActive(true);
+        originalObject = null;
     }
 
-    public void InspectObject(GameObject target)
+    public void InspectObject(GameObject target, bool inspectionFromInventory)
     {
         if (isInspecting)
             StopInspection();
 
+        isInspectingFromInventory = inspectionFromInventory;
         originalObject = target;
         StartInspection();
 

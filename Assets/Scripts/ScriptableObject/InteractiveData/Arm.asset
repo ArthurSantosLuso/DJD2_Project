@@ -20,3 +20,4 @@ MonoBehaviour:
   requirementsMessage: 
   interactionMessages:
   - Take
+  inspectionPrefab: {fileID: 4413559796088124122, guid: a9dfea78ba70e0243ad37d005ca7f35d, type: 3}

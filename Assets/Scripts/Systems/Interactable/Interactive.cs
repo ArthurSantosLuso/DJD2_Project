@@ -53,7 +53,7 @@ public class Interactive : InteractableBase
 
     public string GetInteractionMessage()
     {
-        if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
+        if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(gameObject) && _requirementsMet)
             return _interactionManager.GetPickMessage(_interactiveData.inventoryName);
         else if (!_requirementsMet)
         {
@@ -101,7 +101,7 @@ public class Interactive : InteractableBase
 
     private void PickUpInteractive()
     {
-        _playerInventory.Add(this);
+        _playerInventory.Add(gameObject);
         AudioManager.Instance.PlaySound(interactionSound);
         gameObject.SetActive(false);
     }
@@ -161,20 +161,20 @@ public class Interactive : InteractableBase
 
     private void UseRequirementFromInventory()
     {
-        Interactive requirement = _playerInventory.GetSelected();
+        GameObject requirement = _playerInventory.GetSelected().gameObject;
 
         _playerInventory.Remove(requirement);
 
-        ++requirement._interactionCount;
+        ++requirement.GetComponent<Interactive>()._interactionCount;
 
-        requirement.PlayAnimation(_interactionManager.interactAnimationName);
+        requirement.GetComponent<Interactive>().PlayAnimation(_interactionManager.interactAnimationName);
 
         CheckRequirements();
     }
 
     private void TiggerInspection()
     {
-        InteractionManager.instance.inspectionSystem.InspectObject(gameObject);
+        InteractionManager.instance.inspectionSystem.InspectObject(gameObject, false);
         AudioManager.Instance.PlaySound(interactionSound);
         //_inspector.InspectObject(gameObject.transform);
     }

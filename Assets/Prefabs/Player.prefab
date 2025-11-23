@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 519158129001106655}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 2}
+  m_LocalPosition: {x: 0.004, y: -0.014, z: 1.388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -590,7 +590,7 @@ MonoBehaviour:
   verticalVelocity: 2.5
   maxLookUpRange: 320
   maxLookDownRange: 50
-  footstepsRegular: {fileID: 0}
+  footstepsRegular: {fileID: 8300000, guid: 1697d5894af4f3c4daf61f7df936c942, type: 3}
   footstepSFXInterval: 1
 --- !u!114 &2177769271346492230
 MonoBehaviour:
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b3faf029683348866bddb299d141e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 1.5
+  interactRange: 2.5
   debugMode: 1
 --- !u!114 &6757649878166892599
 MonoBehaviour:
@@ -619,6 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 0}
+  _inspectionSystem: {fileID: 2456804062524754793}
 --- !u!1 &7565628091345869065
 GameObject:
   m_ObjectHideFlags: 0
