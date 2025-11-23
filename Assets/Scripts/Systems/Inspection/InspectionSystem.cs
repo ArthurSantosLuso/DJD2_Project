@@ -68,7 +68,6 @@ public class InspectionSystem : MonoBehaviour
 
         objectClone.localPosition = Vector3.zero;
         objectClone.localRotation = Quaternion.identity;
-
     }
 
     private void HandleObjectRotation()

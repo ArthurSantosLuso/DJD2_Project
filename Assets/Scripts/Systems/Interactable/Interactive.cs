@@ -97,6 +97,8 @@ public class Interactive : InteractableBase
             PlayAnimation(_interactionManager.interactAnimationName);
         else if (IsType(InteractiveData.Type.PickInspect))
             TiggerInspection();
+        else if (IsType(InteractiveData.Type.Focusable))
+            TriggerCameraFocus();
     }
 
     private void PickUpInteractive()
@@ -175,7 +177,23 @@ public class Interactive : InteractableBase
     private void TiggerInspection()
     {
         InteractionManager.instance.inspectionSystem.InspectObject(gameObject, false);
-        AudioManager.Instance.PlaySound(interactionSound);
+        PlayInteractionAudio();
+    }
+
+    private void TriggerCameraFocus()
+    {
+        if(_interactiveData.focusPoint != null)
+        {
+            //_interactiveData.focusPoint = Get
+            InteractionManager.instance.cameraFocusController.EnterFocus(_interactiveData.focusPoint);
+            PlayInteractionAudio();
+        }
+    }
+
+    private void PlayInteractionAudio()
+    {
+        if (interactionSound != null)
+            AudioManager.Instance.PlaySound(interactionSound);
     }
 
     public void ApplyFocus()
