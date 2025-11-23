@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private float interactRange = 5f;
-    [SerializeField] private bool debugMode = false;
+    [SerializeField] private float  interactRange = 5f;
+    [SerializeField] private bool   debugMode = false;
 
-    private Transform cameraTransform;
+    private Transform   cameraTransform;
     private Interactive currentTarget;
-    private bool _refreshCurrentInteractive;
+    private bool        _refreshCurrentInteractive;
 
     private void Start()
     {

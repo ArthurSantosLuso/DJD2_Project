@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private GameObject inventoryMenu;
-    private bool menuActivated = false;
+    [SerializeField] 
+    private GameObject  inventoryMenu;
+    private bool        menuActivated = false;
 
     void Update()
     {

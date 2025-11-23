@@ -4,16 +4,16 @@ using UnityEngine;
 [RequireComponent(typeof(OutlineInteractable))]
 public class Interactive : InteractableBase
 {
-    [SerializeField] private InteractiveData _interactiveData;
-    [SerializeField] private AudioClip interactionSound;
+    [SerializeField] private InteractiveData    _interactiveData;
+    [SerializeField] private AudioClip          interactionSound;
 
-    private InteractionManager _interactionManager;
-    private PlayerInventory _playerInventory;
-    private List<Interactive> _requirements;
-    private List<Interactive> _dependents;
-    private Animator _animator;
-    private bool _requirementsMet;
-    private int _interactionCount;
+    private InteractionManager  _interactionManager;
+    private PlayerInventory     _playerInventory;
+    private List<Interactive>   _requirements;
+    private List<Interactive>   _dependents;
+    private Animator            _animator;
+    private bool                _requirementsMet;
+    private int                 _interactionCount;
     private OutlineInteractable interactable;
 
     public bool isOn;
