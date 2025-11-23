@@ -4,19 +4,13 @@ using UnityEngine;
 public class InspectionSystem : MonoBehaviour
 {
     [Header("Inspection Settings")]
-    [SerializeField] private float rotationSpeed = 100.0f;
+    [SerializeField] private float      rotationSpeed = 100.0f;
     [SerializeField] private GameObject firstPlane;
 
-    private FirstPersonMovement playerMovement;
-    private Transform objectClone;
-    private GameObject originalObject;
-    private Vector3 previousMousePosition;
-    private bool isInspecting = false;
-
-    private void Awake()
-    {
-        playerMovement = GetComponentInParent<FirstPersonMovement>();
-    }
+    private Transform   objectClone;
+    private GameObject  originalObject;
+    private Vector3     previousMousePosition;
+    private bool        isInspecting = false;
 
     private void Update()
     {
@@ -37,29 +31,21 @@ public class InspectionSystem : MonoBehaviour
     {
         isInspecting = true;
         firstPlane.SetActive(true);
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
-        playerMovement.enabled = false;
+        SystemManager.Instance.PauseGame(true);
     }
 
     private void StopInspection()
     {
         isInspecting = false;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        SystemManager.Instance.UnpauseGame();
 
-        playerMovement.enabled = true;
         firstPlane.SetActive(false);
 
-        // Destroy old inspected clone
         if (objectClone != null)
             Destroy(objectClone.gameObject);
 
         objectClone = null;
-
     }
 
     public void InspectObject(GameObject target)
@@ -70,7 +56,9 @@ public class InspectionSystem : MonoBehaviour
         originalObject = target;
         StartInspection();
 
-        objectClone = Instantiate(target, firstPlane.transform).transform;
+        GameObject inspecPrefab = target.GetComponent<Interactive>().interactiveData.inspectionPrefab;
+
+        objectClone = Instantiate(inspecPrefab, firstPlane.transform).transform;
         originalObject.SetActive(false);
 
 
@@ -98,13 +86,6 @@ public class InspectionSystem : MonoBehaviour
             objectClone.Rotate(this.transform.right, rotX, Space.World);
 
             previousMousePosition = Input.mousePosition;
-
-            //Vector3 deltaMousePostion = Input.mousePosition - previousMousePosition;
-            //float rotationX = deltaMousePostion.y * rotationSpeed * Time.deltaTime;
-            //float rotationY = deltaMousePostion.x * rotationSpeed * Time.deltaTime;
-            //Quaternion rotation = Quaternion.Euler(rotationX, rotationY, 0);
-            //objectToInspect.rotation = rotation * objectToInspect.rotation;
-            //previousMousePosition = Input.mousePosition;
         }
     }
 }

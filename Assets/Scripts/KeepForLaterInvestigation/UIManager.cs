@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _inventoryIconsContainer;
+    [SerializeField] private GameObject _inventoryMenu;
     [SerializeField] private int        _defaultCrosshairScale;
     [SerializeField] private int        _interactionCrosshairScale;
     [SerializeField] private Color      _unselectedSlotColor;
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
     private Image[]         _inventorySlots;
     private Image[]         _inventoryIcons;
     private int             _selectedSlotIndex;
+    private bool            menuActivated = false;
 
     void Start()
     {
@@ -25,16 +27,32 @@ public class UIManager : MonoBehaviour
         _inventoryIcons = _inventoryIconsContainer.GetComponentsInChildren<Image>();
         _selectedSlotIndex = -1;
 
-        HideCursor();
+        //HideCursor();
         HideInteractionPanel();
         HideInventoryIcons();
         ResetInventorySlots();
     }
 
-    private void HideCursor()
+    private void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (Input.GetButtonDown("Inventory") && !menuActivated)
+        {
+            _inventoryMenu.SetActive(true);
+            menuActivated = true;
+            SystemManager.Instance.PauseGame(false);
+        }
+        else if (Input.GetButtonDown("Inventory") && menuActivated)
+        {
+            _inventoryMenu.SetActive(false);
+            menuActivated = false;
+            SystemManager.Instance.UnpauseGame();
+        }
     }
+
+    //private void HideCursor()
+    //{
+    //    Cursor.lockState = CursorLockMode.Locked;
+    //}
 
     public void ShowDefaultCrosshair()
     {

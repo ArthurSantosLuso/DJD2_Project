@@ -12,5 +12,6 @@ public class InteractiveData : ScriptableObject
     public InteractiveData[]    requirements;
     public string               requirementsMessage;
     public string[]             interactionMessages;
+    public GameObject           inspectionPrefab;
 }
 
