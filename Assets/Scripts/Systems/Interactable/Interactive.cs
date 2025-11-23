@@ -101,7 +101,7 @@ public class Interactive : InteractableBase
 
     private void PickUpInteractive()
     {
-        _playerInventory.Add(gameObject);
+        _playerInventory.Add(gameObject.GetComponent<Interactive>());
         AudioManager.Instance.PlaySound(interactionSound);
         gameObject.SetActive(false);
     }
@@ -163,7 +163,7 @@ public class Interactive : InteractableBase
     {
         GameObject requirement = _playerInventory.GetSelected().gameObject;
 
-        _playerInventory.Remove(requirement);
+        _playerInventory.Remove(requirement.GetComponent<Interactive>());
 
         ++requirement.GetComponent<Interactive>()._interactionCount;
 
@@ -176,7 +176,6 @@ public class Interactive : InteractableBase
     {
         InteractionManager.instance.inspectionSystem.InspectObject(gameObject, false);
         AudioManager.Instance.PlaySound(interactionSound);
-        //_inspector.InspectObject(gameObject.transform);
     }
 
     public void ApplyFocus()

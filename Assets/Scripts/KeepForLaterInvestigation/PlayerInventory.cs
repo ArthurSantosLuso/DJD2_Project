@@ -3,24 +3,25 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] private UIManager _uiManager;
+    [SerializeField] private UIManager          _uiManager;
+    [SerializeField] private InspectionSystem _inspectionSystem;
 
-    private PlayerInteractor _playerInteractor;
-    private List<Interactive>   _inventory;
+    private PlayerInteractor    _playerInteractor;
+    private List<GameObject>    _inventory;
     private int                 _selectedSlotIndex;
 
     void Start()
     {
         _playerInteractor  = GetComponent<PlayerInteractor>();
-        _inventory          = new List<Interactive>();
+        _inventory          = new List<GameObject>();
         _selectedSlotIndex  = -1;
     }
 
     public void Add(Interactive item)
     {
-        _inventory.Add(item);
+        _inventory.Add(item.gameObject);
 
-        _uiManager.ShowInventoryIcon(_inventory.Count - 1, item.inventoryIcon);
+        _uiManager.ShowInventoryIcon(_inventory.Count - 1, item.GetComponent<Interactive>().inventoryIcon);
 
         if (_selectedSlotIndex == -1)
             SelectInventorySlot(0);
@@ -28,18 +29,18 @@ public class PlayerInventory : MonoBehaviour
 
     public void Remove(Interactive item)
     {
-        _inventory.Remove(item);
+        _inventory.Remove(item.gameObject);
 
         _uiManager.HideInventoryIcons();
 
         for (int i = 0; i < _inventory.Count; ++i)
-            _uiManager.ShowInventoryIcon(i, _inventory[i].inventoryIcon);
+            _uiManager.ShowInventoryIcon(i, _inventory[i].GetComponent<Interactive>().inventoryIcon);
 
         if (_selectedSlotIndex == _inventory.Count)
             SelectInventorySlot(_selectedSlotIndex - 1);
     }
 
-    public bool Contains(Interactive item)
+    public bool Contains(GameObject item)
     {
         return _inventory.Contains(item);
     }
@@ -60,7 +61,7 @@ public class PlayerInventory : MonoBehaviour
 
     public string GetSelectedInteractionMessage()
     {
-        return _inventory[_selectedSlotIndex].GetInteractionMessage();
+        return _inventory[_selectedSlotIndex].GetComponent<Interactive>().GetInteractionMessage();
     }
 
     public bool IsSelected(Interactive item)
@@ -70,12 +71,18 @@ public class PlayerInventory : MonoBehaviour
 
     public Interactive GetSelected()
     {
-        return _selectedSlotIndex != -1 ? _inventory[_selectedSlotIndex] : null;
+        return _selectedSlotIndex != -1 ? _inventory[_selectedSlotIndex].GetComponent<Interactive>() : null;
     }
 
     void Update()
     {
         CheckForPlayerSlotSelection();
+
+        if (_selectedSlotIndex != -1
+            && Input.GetKeyDown(KeyCode.G))
+        {
+            _inspectionSystem.InspectObject(GetSelected().gameObject, true);
+        }
     }
 
     private void CheckForPlayerSlotSelection()
