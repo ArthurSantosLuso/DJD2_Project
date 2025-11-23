@@ -17,6 +17,7 @@ public class InteractionManager : MonoBehaviour
     }
 
     [SerializeField] private PlayerInventory    _playerInventory;
+    [SerializeField] private InspectionSystem   _inspect;
     [SerializeField] private string             _interactPrefix;
     [SerializeField] private string             _pickPrefix;
     [SerializeField] private string             _awakeAnimationName;
@@ -24,9 +25,10 @@ public class InteractionManager : MonoBehaviour
 
     private List<Interactive> _interactives;
 
-    public PlayerInventory  playerInventory         => _playerInventory;
-    public string           awakeAnimationName      => _awakeAnimationName;
-    public string           interactAnimationName   => _interactAnimationName;
+    public PlayerInventory playerInventory => _playerInventory;
+    public InspectionSystem inspectionSystem => _inspect;
+    public string awakeAnimationName => _awakeAnimationName;
+    public string interactAnimationName => _interactAnimationName;
 
     void Awake()
     {
@@ -35,7 +37,7 @@ public class InteractionManager : MonoBehaviour
         else if (_instance != this)
             Destroy(gameObject);
     }
-    
+
     private void Init()
     {
         _instance = this;

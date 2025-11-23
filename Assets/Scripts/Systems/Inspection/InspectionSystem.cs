@@ -1,30 +1,93 @@
+using TreeEditor;
 using UnityEngine;
 
 public class InspectionSystem : MonoBehaviour
 {
-    // After implementing this to the interaction system, change it to a property with
-    // public get and private set and create a method to set the object to inspect
-    [SerializeField] private Transform objectToInspect;
-    [SerializeField] private float rotationSpeed = 100.0f;
-    
-    private Vector3 previousMousePosition;
+    [Header("Inspection Settings")]
+    [SerializeField] private float      rotationSpeed = 100.0f;
+    [SerializeField] private GameObject firstPlane;
 
+    private Transform   objectClone;
+    private GameObject  originalObject;
+    private Vector3     previousMousePosition;
+    private bool        isInspecting = false;
+    private bool        isInspectingFromInventory = false;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isInspecting)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            previousMousePosition = Input.mousePosition;
+            StopInspection();
         }
+
+        HandleObjectRotation();
+    }
+
+    private void StartInspection()
+    {
+        isInspecting = true;
+        firstPlane.SetActive(true);
+        SystemManager.Instance.PauseGame(true);
+    }
+
+    private void StopInspection()
+    {
+        isInspecting = false;
+
+        SystemManager.Instance.UnpauseGame();
+
+        firstPlane.SetActive(false);
+
+        if (objectClone != null)
+            Destroy(objectClone.gameObject);
+
+        objectClone = null;
+
+        if (!isInspectingFromInventory)
+            originalObject.SetActive(true);
+        originalObject = null;
+    }
+
+    public void InspectObject(GameObject target, bool inspectionFromInventory)
+    {
+        if (isInspecting)
+            StopInspection();
+
+        isInspectingFromInventory = inspectionFromInventory;
+        originalObject = target;
+        StartInspection();
+
+        GameObject inspecPrefab = target.GetComponent<Interactive>().interactiveData.inspectionPrefab;
+
+        objectClone = Instantiate(inspecPrefab, firstPlane.transform).transform;
+        originalObject.SetActive(false);
+
+
+        objectClone.localPosition = Vector3.zero;
+        objectClone.localRotation = Quaternion.identity;
+
+    }
+
+    private void HandleObjectRotation()
+    {
+        if (objectClone == null)
+            return;
+
+        if (Input.GetMouseButtonDown(0))
+            previousMousePosition = Input.mousePosition;
 
         if (Input.GetMouseButton(0))
         {
-            Vector3 deltaMousePostion = Input.mousePosition - previousMousePosition;
-            float rotationX = deltaMousePostion.y * rotationSpeed * Time.deltaTime;
-            float rotationY = deltaMousePostion.x * rotationSpeed * Time.deltaTime;
+            Vector3 delta = Input.mousePosition - previousMousePosition;
 
-            Quaternion rotation = Quaternion.Euler(rotationX, rotationY, 0);
-            objectToInspect.rotation = rotation * objectToInspect.rotation;
+            float rotX = delta.y * rotationSpeed * Time.deltaTime;
+            float rotY = -delta.x * rotationSpeed * Time.deltaTime;
+
+            objectClone.Rotate(this.transform.up, rotY, Space.World);
+            objectClone.Rotate(this.transform.right, rotX, Space.World);
 
             previousMousePosition = Input.mousePosition;
         }

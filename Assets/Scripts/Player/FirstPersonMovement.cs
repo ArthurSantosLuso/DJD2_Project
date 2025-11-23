@@ -1,7 +1,6 @@
-using System.Globalization;
-using TreeEditor;
+﻿using System.Collections;
+using UnityEditor.Timeline;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonMovement : MonoBehaviour
@@ -10,22 +9,27 @@ public class FirstPersonMovement : MonoBehaviour
     [SerializeField] private float forwardSpeed = 3.0f;
     [SerializeField] private float strafeSpeed = 3.0f;
     [SerializeField] private float backwardSpeed = 3.0f;
+    [SerializeField] private float verticalVelocity = 0f;
 
-    [Header("Look Sentting")]
+    [Header("Look Senttings")]
     [SerializeField] private float maxLookUpRange= 290.0f;
     [SerializeField] private float maxLookDownRange = 75.0f;
 
+    [Header("Sound Senttings")]
+    [SerializeField] private AudioClip footstepsRegular;
+    //[SerializeField] private AudioClip footstepsFleshy;
+    [SerializeField] private float footstepSFXInterval = 1.0f;
+
+    private float footstepTimer = 0f;
     private Transform head;
-    private Vector3 headRotation;
     private CharacterController characterController;
+    private Vector3 headRotation;
     private Vector3 velocity;
     private Vector3 motion;
 
 
     private void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         head = GetComponentInChildren<Camera>().transform;
     }
@@ -77,10 +81,44 @@ public class FirstPersonMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        motion = velocity * Time.fixedDeltaTime;
+        if (characterController.isGrounded)
+            verticalVelocity = -1f;
+        else
+            verticalVelocity += Physics.gravity.y * Time.deltaTime;
+
+        motion = velocity;
         motion = transform.TransformVector(motion);
+        motion.y = verticalVelocity;
         
-        characterController.Move(motion);
+        characterController.Move(motion * Time.deltaTime);
+
+        //HandleFootsteps();
+
     }
+
+    private void HandleFootsteps()
+    {
+        // Only play sound if grounded AND moving
+        Vector3 flatVelocity = new Vector3(motion.x, 0, motion.z);
+
+        if (!characterController.isGrounded || flatVelocity.magnitude < 0.1f)
+        {
+            footstepTimer = 0f;
+            return;
+        }
+
+        // Count down
+        footstepTimer -= Time.deltaTime;
+
+        // When timer hits zero → play footstep SFX
+        if (footstepTimer <= 0f)
+        {
+            AudioManager.Instance.PlaySound(footstepsRegular);
+
+            // Reset timer
+            footstepTimer = footstepSFXInterval;
+        }
+    }
+
 
 }

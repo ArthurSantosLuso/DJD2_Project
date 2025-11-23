@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(OutlineInteractable))]
 public class Interactive : InteractableBase
 {
-    [SerializeField] private InteractiveData _interactiveData;
+    [SerializeField] private InteractiveData    _interactiveData;
+    [SerializeField] private AudioClip          interactionSound;
 
     private InteractionManager  _interactionManager;
     private PlayerInventory     _playerInventory;
@@ -15,22 +16,22 @@ public class Interactive : InteractableBase
     private int                 _interactionCount;
     private OutlineInteractable interactable;
 
-    public bool             isOn;
-    public InteractiveData  interactiveData => _interactiveData;
-    public string           inventoryName   => _interactiveData.inventoryName;
-    public Sprite           inventoryIcon   => _interactiveData.inventoryIcon;
+    public bool isOn;
+    public InteractiveData interactiveData => _interactiveData;
+    public string inventoryName => _interactiveData.inventoryName;
+    public Sprite inventoryIcon => _interactiveData.inventoryIcon;
 
     void Awake()
     {
         _interactionManager = InteractionManager.instance;
-        _playerInventory    = _interactionManager.playerInventory;
-        _requirements       = new List<Interactive>();
-        _dependents         = new List<Interactive>();
-        _animator           = GetComponent<Animator>();
-        _requirementsMet    = _interactiveData.requirements.Length == 0;
-        _interactionCount   = 0;
-        isOn                = _interactiveData.startsOn;
-        interactable        = GetComponent<OutlineInteractable>();
+        _playerInventory = _interactionManager.playerInventory;
+        _requirements = new List<Interactive>();
+        _dependents = new List<Interactive>();
+        _animator = GetComponent<Animator>();
+        _requirementsMet = _interactiveData.requirements.Length == 0;
+        _interactionCount = 0;
+        isOn = _interactiveData.startsOn;
+        interactable = GetComponent<OutlineInteractable>();
 
         _interactionManager.RegisterInteractive(this);
     }
@@ -52,7 +53,7 @@ public class Interactive : InteractableBase
 
     public string GetInteractionMessage()
     {
-        if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(this) && _requirementsMet)
+        if (IsType(InteractiveData.Type.Pickable) && !_playerInventory.Contains(gameObject) && _requirementsMet)
             return _interactionManager.GetPickMessage(_interactiveData.inventoryName);
         else if (!_requirementsMet)
         {
@@ -94,11 +95,14 @@ public class Interactive : InteractableBase
             DoDirectInteraction();
         else if (IsType(InteractiveData.Type.Indirect))
             PlayAnimation(_interactionManager.interactAnimationName);
+        else if (IsType(InteractiveData.Type.PickInspect))
+            TiggerInspection();
     }
 
     private void PickUpInteractive()
     {
-        _playerInventory.Add(this);
+        _playerInventory.Add(gameObject.GetComponent<Interactive>());
+        AudioManager.Instance.PlaySound(interactionSound);
         gameObject.SetActive(false);
     }
 
@@ -125,12 +129,12 @@ public class Interactive : InteractableBase
     {
         foreach (Interactive requirement in _requirements)
         {
-            if (!requirement._requirementsMet || 
+            if (!requirement._requirementsMet ||
                (!requirement.IsType(InteractiveData.Type.Indirect) && requirement._interactionCount == 0))
-               {
-                    _requirementsMet = false;
-                    return;
-               }
+            {
+                _requirementsMet = false;
+                return;
+            }
         }
 
         _requirementsMet = true;
@@ -145,7 +149,7 @@ public class Interactive : InteractableBase
             if (dependent.IsType(InteractiveData.Type.Indirect) && dependent._requirementsMet)
                 dependent.InteractSelf(false);
     }
- 
+
     private void PlayAnimation(string animation)
     {
         if (_animator != null)
@@ -157,15 +161,21 @@ public class Interactive : InteractableBase
 
     private void UseRequirementFromInventory()
     {
-        Interactive requirement = _playerInventory.GetSelected();
+        GameObject requirement = _playerInventory.GetSelected().gameObject;
 
-        _playerInventory.Remove(requirement);
+        _playerInventory.Remove(requirement.GetComponent<Interactive>());
 
-        ++requirement._interactionCount;
+        ++requirement.GetComponent<Interactive>()._interactionCount;
 
-        requirement.PlayAnimation(_interactionManager.interactAnimationName);
+        requirement.GetComponent<Interactive>().PlayAnimation(_interactionManager.interactAnimationName);
 
         CheckRequirements();
+    }
+
+    private void TiggerInspection()
+    {
+        InteractionManager.instance.inspectionSystem.InspectObject(gameObject, false);
+        AudioManager.Instance.PlaySound(interactionSound);
     }
 
     public void ApplyFocus()

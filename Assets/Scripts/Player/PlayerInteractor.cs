@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private float interactRange = 5f;
-    [SerializeField] private bool debugMode = false;
+    [SerializeField] private float  interactRange = 5f;
+    [SerializeField] private bool   debugMode = false;
 
-    private Transform cameraTransform;
+    private Transform   cameraTransform;
     private Interactive currentTarget;
+    private bool        _refreshCurrentInteractive;
 
     private void Start()
     {
         cameraTransform = GetComponentInChildren<Camera>().transform;
+        _refreshCurrentInteractive = false;
     }
 
     void Update()
@@ -26,7 +28,7 @@ public class PlayerInteractor : MonoBehaviour
         if (debugMode)
             Debug.DrawRay(ray.origin, ray.direction * interactRange, Color.red);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, LayerMask.NameToLayer("Interactable")))
             UpdateCurrentInteractive(hit.collider);
         else if (currentTarget != null)
             ClearCurrentTarget();
@@ -47,9 +49,9 @@ public class PlayerInteractor : MonoBehaviour
 
     private void DetectInput()
     {
-        if (Input.GetKeyDown(KeyCode.E) && currentTarget != null)
+        if (Input.GetKeyDown(KeyCode.F) && currentTarget != null)
         {
-            //currentTarget.Interact();
+            currentTarget.Interact();
         }
     }
 
@@ -65,5 +67,10 @@ public class PlayerInteractor : MonoBehaviour
         currentTarget.LoseFocus();
         currentTarget = null;
         if (debugMode) Debug.Log("Not Looking at an interactable");
+    }
+
+    public void RefreshCurrentInteractive()
+    {
+        _refreshCurrentInteractive = true;
     }
 }
