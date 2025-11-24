@@ -425,17 +425,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 882550193}
     - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
-      propertyPath: _awakeAnimationName
-      value: Awake
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
       propertyPath: _cameraFocusController
       value: 
       objectReference: {fileID: 903377996}
-    - target: {fileID: 8145178053567180574, guid: 4f4d87104f4f7354cb5418ce8ac27035, type: 3}
-      propertyPath: _interactAnimationName
-      value: Interact
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -903,32 +895,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2960917811965206216, guid: 5cf84b50fa1466e4f9dace75a6c9e0bf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4815926784050869507, guid: 5cf84b50fa1466e4f9dace75a6c9e0bf, type: 3}
       propertyPath: m_Name
       value: computer1
       objectReference: {fileID: 0}
-    - target: {fileID: 6779898364204995786, guid: 5cf84b50fa1466e4f9dace75a6c9e0bf, type: 3}
-      propertyPath: _focusPoint
-      value: 
-      objectReference: {fileID: 3222925939860986435}
-    - target: {fileID: 6779898364204995786, guid: 5cf84b50fa1466e4f9dace75a6c9e0bf, type: 3}
-      propertyPath: interactionSound
-      value: 
-      objectReference: {fileID: 8300000, guid: c0a361d6f9bb5a049b41ce42aeb82670, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cf84b50fa1466e4f9dace75a6c9e0bf, type: 3}
---- !u!4 &3222925939860986435 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3336432715424003175, guid: 5cf84b50fa1466e4f9dace75a6c9e0bf, type: 3}
-  m_PrefabInstance: {fileID: 3222925939860986434}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
