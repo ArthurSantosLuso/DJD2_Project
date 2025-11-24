@@ -14,7 +14,7 @@ Repository for DJD2 Malebolge game project.
 
 [contract\_inspect\_intro\_v1](https://pixabay.com/sound-effects/paper-flutter-5933/) -- License CC0
 
-\[pick\_arm\_sfx\_v1](https://pixabay.com/sound-effects/hit-flesh-03-266308/) -- License CC0
+[pick\_arm\_sfx\_v1](https://pixabay.com/sound-effects/hit-flesh-03-266308/) -- License CC0
 
 
 
