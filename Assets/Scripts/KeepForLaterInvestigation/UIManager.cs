@@ -27,7 +27,6 @@ public class UIManager : MonoBehaviour
         _inventoryIcons = _inventoryIconsContainer.GetComponentsInChildren<Image>();
         _selectedSlotIndex = -1;
 
-        //HideCursor();
         HideInteractionPanel();
         HideInventoryIcons();
         ResetInventorySlots();
@@ -39,7 +38,7 @@ public class UIManager : MonoBehaviour
         {
             _inventoryMenu.SetActive(true);
             menuActivated = true;
-            SystemManager.Instance.PauseGame(false);
+            SystemManager.Instance.PauseGame(SystemManager.PauseType.StopEverything);
         }
         else if (Input.GetButtonDown("Inventory") && menuActivated)
         {
@@ -48,11 +47,6 @@ public class UIManager : MonoBehaviour
             SystemManager.Instance.UnpauseGame();
         }
     }
-
-    //private void HideCursor()
-    //{
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //}
 
     public void ShowDefaultCrosshair()
     {

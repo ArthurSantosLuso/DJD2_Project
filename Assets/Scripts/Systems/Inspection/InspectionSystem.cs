@@ -30,7 +30,7 @@ public class InspectionSystem : MonoBehaviour
     {
         isInspecting = true;
         firstPlane.SetActive(true);
-        SystemManager.Instance.PauseGame(true);
+        SystemManager.Instance.PauseGame(SystemManager.PauseType.Inspection);
     }
 
     private void StopInspection()

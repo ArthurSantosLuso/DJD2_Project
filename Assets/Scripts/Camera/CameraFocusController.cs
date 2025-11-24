@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraFocusController : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class CameraFocusController : MonoBehaviour
     private bool        isFocusing     = false;
     private bool        isReturning    = false;
 
+    public bool IsFocusing => isFocusing;
+
     private void Start()
     {
         cam = playerCamera;
@@ -21,7 +25,6 @@ public class CameraFocusController : MonoBehaviour
         normalPosition.localRotation = cam.localRotation;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (isFocusing && targetFocusPoint != null)
@@ -30,9 +33,6 @@ public class CameraFocusController : MonoBehaviour
                 Vector3.Lerp(cam.position, targetFocusPoint.position, moveSpeed * Time.deltaTime);
             cam.rotation =
                 Quaternion.Lerp(cam.rotation, targetFocusPoint.rotation, moveSpeed * Time.deltaTime);
-
-            if (Input.GetKeyDown(KeyCode.E))
-                ExitFocus();
         }
 
         if (isReturning)
@@ -59,7 +59,7 @@ public class CameraFocusController : MonoBehaviour
         isReturning = false;
         targetFocusPoint = focusPoint;
 
-        SystemManager.Instance.PauseGame(true);
+        SystemManager.Instance.PauseGame(SystemManager.PauseType.FocusObject);
     }
 
     public void ExitFocus()

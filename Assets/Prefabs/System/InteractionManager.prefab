@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerInventory: {fileID: 0}
   _inspect: {fileID: 0}
+  _cameraFocusController: {fileID: 0}
   _interactPrefix: F
   _pickPrefix: Pick
   _awakeAnimationName: Awake

@@ -185,9 +185,17 @@ public class Interactive : InteractableBase
     {
         if(_focusPoint != null)
         {
-            InteractionManager.instance.cameraFocusController.EnterFocus(_focusPoint);
+            if (!InteractionManager.instance.cameraFocusController.IsFocusing)
+            {
+                InteractionManager.instance.cameraFocusController.EnterFocus(_focusPoint);
+                PlayInteractionAudio();
+            }
+            else 
+            {
+                InteractionManager.instance.cameraFocusController.ExitFocus();
+            }
+
             PlayAnimation(_interactionManager.interactAnimationName);
-            PlayInteractionAudio();
         }
     }
 
