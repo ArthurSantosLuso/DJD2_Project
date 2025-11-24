@@ -1,4 +1,5 @@
 using TreeEditor;
+using Unity.Jobs;
 using UnityEngine;
 
 public class InspectionSystem : MonoBehaviour
@@ -12,6 +13,10 @@ public class InspectionSystem : MonoBehaviour
     private Vector3     previousMousePosition;
     private bool        isInspecting = false;
     private bool        isInspectingFromInventory = false;
+
+    // Remove it later
+    [SerializeField] GameObject selfCardPanel;
+    [SerializeField] GameObject coworkerCardPanel;
 
     private void Update()
     {
@@ -41,6 +46,13 @@ public class InspectionSystem : MonoBehaviour
 
         firstPlane.SetActive(false);
 
+        // -----
+        // Remove it later
+        if (originalObject.name == "IDCardSelf")
+            selfCardPanel.SetActive(false);
+        else if (originalObject.name == "IDCardCoworker")
+            coworkerCardPanel.SetActive(false);
+        // -----
         if (objectClone != null)
             Destroy(objectClone.gameObject);
 
@@ -56,9 +68,19 @@ public class InspectionSystem : MonoBehaviour
         if (isInspecting)
             StopInspection();
 
+
+
         isInspectingFromInventory = inspectionFromInventory;
         originalObject = target;
         StartInspection();
+
+        // -----
+        // Remove it later
+        if (originalObject.name == "IDCardSelf")
+            selfCardPanel.SetActive(true);
+        else if (originalObject.name == "IDCardCoworker")
+            coworkerCardPanel.SetActive(true);
+        // -----
 
         GameObject inspecPrefab = target.GetComponent<Interactive>().interactiveData.inspectionPrefab;
 
