@@ -6,15 +6,16 @@ public class Interactive : InteractableBase
 {
     [SerializeField] private InteractiveData    _interactiveData;
     [SerializeField] private AudioClip          interactionSound;
+    [SerializeField] private Transform          _focusPoint; // <-- Change this later. Not every interactive should have a focus point.
 
     private InteractionManager  _interactionManager;
     private PlayerInventory     _playerInventory;
+    private OutlineInteractable interactable;
     private List<Interactive>   _requirements;
     private List<Interactive>   _dependents;
     private Animator            _animator;
     private bool                _requirementsMet;
     private int                 _interactionCount;
-    private OutlineInteractable interactable;
 
     public bool isOn;
     public InteractiveData interactiveData => _interactiveData;
@@ -182,10 +183,9 @@ public class Interactive : InteractableBase
 
     private void TriggerCameraFocus()
     {
-        if(_interactiveData.focusPoint != null)
+        if(_focusPoint != null)
         {
-            //_interactiveData.focusPoint = Get
-            InteractionManager.instance.cameraFocusController.EnterFocus(_interactiveData.focusPoint);
+            InteractionManager.instance.cameraFocusController.EnterFocus(_focusPoint);
             PlayInteractionAudio();
         }
     }

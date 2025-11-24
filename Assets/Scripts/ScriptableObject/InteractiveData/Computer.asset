@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0693710fd98b524d971c0540d9ef194, type: 3}
   m_Name: Computer
   m_EditorClassIdentifier: 
-  type: 2
+  type: 5
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements: []
   requirementsMessage: 
   interactionMessages: []
+  inspectionPrefab: {fileID: 0}

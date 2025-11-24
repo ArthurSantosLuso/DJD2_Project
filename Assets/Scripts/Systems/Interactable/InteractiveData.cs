@@ -13,6 +13,5 @@ public class InteractiveData : ScriptableObject
     public string               requirementsMessage;
     public string[]             interactionMessages;
     public GameObject           inspectionPrefab;
-    public Transform            focusPoint;
 }
 
