@@ -16,17 +16,19 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private PlayerInventory    _playerInventory;
-    [SerializeField] private InspectionSystem   _inspect;
-    [SerializeField] private string             _interactPrefix;
-    [SerializeField] private string             _pickPrefix;
-    [SerializeField] private string             _awakeAnimationName;
-    [SerializeField] private string             _interactAnimationName;
+    [SerializeField] private PlayerInventory        _playerInventory;
+    [SerializeField] private InspectionSystem       _inspect;
+    [SerializeField] private CameraFocusController  _cameraFocusController;
+    [SerializeField] private string                 _interactPrefix;
+    [SerializeField] private string                 _pickPrefix;
+    [SerializeField] private string                 _awakeAnimationName;
+    [SerializeField] private string                 _interactAnimationName;
 
     private List<Interactive> _interactives;
 
     public PlayerInventory playerInventory => _playerInventory;
     public InspectionSystem inspectionSystem => _inspect;
+    public CameraFocusController cameraFocusController => _cameraFocusController;
     public string awakeAnimationName => _awakeAnimationName;
     public string interactAnimationName => _interactAnimationName;
 

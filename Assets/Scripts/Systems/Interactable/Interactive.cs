@@ -6,15 +6,16 @@ public class Interactive : InteractableBase
 {
     [SerializeField] private InteractiveData    _interactiveData;
     [SerializeField] private AudioClip          interactionSound;
+    [SerializeField] private Transform          _focusPoint; // <-- Change this later. Not every interactive should have a focus point.
 
     private InteractionManager  _interactionManager;
     private PlayerInventory     _playerInventory;
+    private OutlineInteractable interactable;
     private List<Interactive>   _requirements;
     private List<Interactive>   _dependents;
     private Animator            _animator;
     private bool                _requirementsMet;
     private int                 _interactionCount;
-    private OutlineInteractable interactable;
 
     public bool isOn;
     public InteractiveData interactiveData => _interactiveData;
@@ -97,6 +98,8 @@ public class Interactive : InteractableBase
             PlayAnimation(_interactionManager.interactAnimationName);
         else if (IsType(InteractiveData.Type.PickInspect))
             TiggerInspection();
+        else if (IsType(InteractiveData.Type.Focusable))
+            TriggerCameraFocus();
     }
 
     private void PickUpInteractive()
@@ -175,7 +178,31 @@ public class Interactive : InteractableBase
     private void TiggerInspection()
     {
         InteractionManager.instance.inspectionSystem.InspectObject(gameObject, false);
-        AudioManager.Instance.PlaySound(interactionSound);
+        PlayInteractionAudio();
+    }
+
+    private void TriggerCameraFocus()
+    {
+        if(_focusPoint != null)
+        {
+            if (!InteractionManager.instance.cameraFocusController.IsFocusing)
+            {
+                InteractionManager.instance.cameraFocusController.EnterFocus(_focusPoint);
+                PlayInteractionAudio();
+            }
+            else 
+            {
+                InteractionManager.instance.cameraFocusController.ExitFocus();
+            }
+
+            PlayAnimation(_interactionManager.interactAnimationName);
+        }
+    }
+
+    private void PlayInteractionAudio()
+    {
+        if (interactionSound != null)
+            AudioManager.Instance.PlaySound(interactionSound);
     }
 
     public void ApplyFocus()

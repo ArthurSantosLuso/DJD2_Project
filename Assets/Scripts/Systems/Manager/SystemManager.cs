@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SystemManager : MonoBehaviour
 {
+    public enum PauseType { StopEverything, Inspection, FocusObject}
+
     private static SystemManager _instance;
 
     public static SystemManager Instance
@@ -38,11 +40,11 @@ public class SystemManager : MonoBehaviour
         UnpauseGame();
     }
 
-    public void PauseGame(bool isInspectionMode = false)
+    public void PauseGame(PauseType pauseType)
     {
-        if(!isInspectionMode)
+        if(pauseType == PauseType.StopEverything)
             Time.timeScale = 0f;
-        DisablePlayer();
+        DisablePlayer(pauseType);
         CursorEnable();
     }
 
@@ -53,9 +55,11 @@ public class SystemManager : MonoBehaviour
         CursorDisable();
     }
 
-    private void DisablePlayer()
+    private void DisablePlayer(PauseType pauseType)
     {
-        playerInteractor.enabled = false;
+        if (pauseType != PauseType.FocusObject)
+            playerInteractor.enabled = false;
+
         playerMovement.enabled = false;
     }
 
