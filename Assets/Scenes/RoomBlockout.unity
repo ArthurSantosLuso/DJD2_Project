@@ -291,10 +291,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3361811071633753528, guid: a22bf3f4ab5099242a8c4a599bd74dcf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dcffe2f458b8f24f8331d86b054612f, type: 2}
     - target: {fileID: 919132149155446097, guid: a22bf3f4ab5099242a8c4a599bd74dcf, type: 3}
       propertyPath: m_Name
       value: room_blockout_v 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1103647875147639682, guid: a22bf3f4ab5099242a8c4a599bd74dcf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 116699c93b3db4144b3bd0f7e9313d29, type: 2}
+    - target: {fileID: 5181700875489322667, guid: a22bf3f4ab5099242a8c4a599bd74dcf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dcffe2f458b8f24f8331d86b054612f, type: 2}
+    - target: {fileID: 7035449200218528079, guid: a22bf3f4ab5099242a8c4a599bd74dcf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 116699c93b3db4144b3bd0f7e9313d29, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
