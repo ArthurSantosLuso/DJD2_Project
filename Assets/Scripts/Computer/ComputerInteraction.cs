@@ -6,23 +6,8 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private GameObject passwordPanel;
     [SerializeField] private GameObject desktopPanel;
-
-    private bool isPasswordCorrect = false;
-
-    //private void OnEnable()
-    //{
-    //    if (isPasswordCorrect)
-    //    {
-
-    //    }
-    //    else
-    //    {
-    //        desktopPanel.SetActive(false);
-    //        passwordPanel.SetActive(true);
-    //    }
-    //}
-
-    
+    [SerializeField] private GameObject softwerePanel;
+    [SerializeField] private GameObject textFilePanel;
 
     private void Start()
     {
@@ -42,5 +27,17 @@ public class ComputerInteraction : MonoBehaviour
         {
             Debug.Log("Errou a password!");
         }
+    }
+
+    public void OpenTextFile()
+    {
+        softwerePanel.SetActive(false);
+        textFilePanel.SetActive(true);
+    }
+
+    public void CloseTextFile()
+    {
+        softwerePanel.SetActive(true);
+        textFilePanel.SetActive(false);
     }
 }
