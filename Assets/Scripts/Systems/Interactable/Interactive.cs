@@ -186,6 +186,7 @@ public class Interactive : InteractableBase
         if(_focusPoint != null)
         {
             InteractionManager.instance.cameraFocusController.EnterFocus(_focusPoint);
+            PlayAnimation(_interactionManager.interactAnimationName);
             PlayInteractionAudio();
         }
     }
