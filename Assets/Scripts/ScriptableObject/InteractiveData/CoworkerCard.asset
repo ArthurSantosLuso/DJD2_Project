@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   startsOn: 1
   inventoryName: XXX work card
-  inventoryIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  inventoryIcon: {fileID: 21300000, guid: 31459171a4b78554383c0355bf112378, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages: []
