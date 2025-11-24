@@ -16,7 +16,7 @@ public class ComputerInteraction : MonoBehaviour
 
     public void CheckIfPasswordIsCorrect()
     {
-        if (inputField.text == "123456")
+        if (inputField.text == "319256")
         {
             Debug.Log("Acertou a password!");
             desktopPanel.SetActive(true);
