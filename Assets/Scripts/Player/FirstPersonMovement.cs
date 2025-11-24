@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UnityEditor.Timeline;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonMovement : MonoBehaviour

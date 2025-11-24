@@ -1,5 +1,3 @@
-using TreeEditor;
-using Unity.Jobs;
 using UnityEngine;
 
 public class InspectionSystem : MonoBehaviour

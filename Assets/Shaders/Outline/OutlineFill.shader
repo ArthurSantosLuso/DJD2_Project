@@ -4,7 +4,7 @@ Shader "Custom/Outline Fill"
     {
         [Enum(UnityEngine.Rendering.CompareFunction)] _ZTest("ZTest", Float) = 0
         
-        _Color("Color", Color) = (1, 1, 1)
+        _Color("Color", Color) = (255, 255, 255)
         _Width("Width", Range(0, 10)) = 2
     }
     SubShader

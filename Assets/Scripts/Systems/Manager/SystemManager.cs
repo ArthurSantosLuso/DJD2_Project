@@ -32,8 +32,9 @@ public class SystemManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    [SerializeField] private FirstPersonMovement playerMovement;
-    [SerializeField] private PlayerInteractor playerInteractor;
+    [SerializeField] private FirstPersonMovement    playerMovement;
+    [SerializeField] private PlayerInteractor       playerInteractor;
+    [SerializeField] private PlayerInventory        playerInventory;
 
     private void Start()
     {
@@ -61,12 +62,14 @@ public class SystemManager : MonoBehaviour
             playerInteractor.enabled = false;
 
         playerMovement.enabled = false;
+        playerInventory.enabled = false;
     }
 
     private void EnablePlayer()
     {
         playerInteractor.enabled = true;
         playerMovement.enabled = true;
+        playerInventory.enabled = true;
     }
 
     private void CursorDisable()
