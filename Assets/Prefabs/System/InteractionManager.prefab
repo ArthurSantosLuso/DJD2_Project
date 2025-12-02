@@ -47,7 +47,7 @@ MonoBehaviour:
   _playerInventory: {fileID: 0}
   _inspect: {fileID: 0}
   _cameraFocusController: {fileID: 0}
-  _interactPrefix: F
-  _pickPrefix: Pick
+  _interactPrefix: F -
+  _pickPrefix: Collect
   _awakeAnimationName: Awake
   _interactAnimationName: Interact

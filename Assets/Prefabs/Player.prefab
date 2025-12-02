@@ -403,6 +403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   firstPlane: {fileID: 519158129001106655}
+  selfCardPanel: {fileID: 0}
+  coworkerCardPanel: {fileID: 0}
 --- !u!114 &8705081628916778366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,7 +606,7 @@ MonoBehaviour:
   backwardSpeed: 2
   verticalVelocity: 2.5
   maxLookUpRange: 320
-  maxLookDownRange: 50
+  maxLookDownRange: 80
   footstepsRegular: {fileID: 8300000, guid: 1697d5894af4f3c4daf61f7df936c942, type: 3}
   footstepSFXInterval: 1
 --- !u!114 &2177769271346492230
@@ -619,8 +621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b3faf029683348866bddb299d141e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
   interactRange: 2.5
-  debugMode: 0
 --- !u!114 &6757649878166892599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +649,7 @@ GameObject:
   - component: {fileID: 9159422865412995882}
   - component: {fileID: 2488310752507832684}
   - component: {fileID: 572665768704126660}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InspectionBlurEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
