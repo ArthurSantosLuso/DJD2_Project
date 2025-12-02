@@ -17,6 +17,7 @@ MonoBehaviour:
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements: []
-  requirementsMessage: Womp womp
-  interactionMessages: []
+  requirementsMessage: 
+  interactionMessages:
+  - Inspect
   inspectionPrefab: {fileID: 805489561219588249, guid: 8a4a970eb2f7f914aab4a601f923df04, type: 3}
