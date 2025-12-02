@@ -166,6 +166,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1697239523}
   playerInteractor: {fileID: 1697239522}
   playerInventory: {fileID: 1054480984}
+  inGameUI: {fileID: 1420136155}
 --- !u!4 &53589448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2353942316100666796, guid: ec5232487d87de941bb335934c745c72, type: 3}
@@ -334,6 +335,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2177769271346492230, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 1420136153}
     - target: {fileID: 2177769271346492230, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
       propertyPath: interactRange
       value: 2.5
@@ -2126,6 +2131,11 @@ MonoBehaviour:
 --- !u!224 &1420136154 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1012062775944739598, guid: 82cac1d7952184344bb584a52fc6a5f2, type: 3}
+  m_PrefabInstance: {fileID: 1420136152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1420136155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5909356487012306593, guid: 82cac1d7952184344bb584a52fc6a5f2, type: 3}
   m_PrefabInstance: {fileID: 1420136152}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1423018640 stripped

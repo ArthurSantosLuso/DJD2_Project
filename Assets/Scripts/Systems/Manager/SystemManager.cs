@@ -35,6 +35,7 @@ public class SystemManager : MonoBehaviour
     [SerializeField] private FirstPersonMovement    playerMovement;
     [SerializeField] private PlayerInteractor       playerInteractor;
     [SerializeField] private PlayerInventory        playerInventory;
+    [SerializeField] private GameObject             inGameUI;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class SystemManager : MonoBehaviour
             Time.timeScale = 0f;
         DisablePlayer(pauseType);
         CursorEnable();
+        DisableUI();
     }
 
     public void UnpauseGame()
@@ -54,6 +56,7 @@ public class SystemManager : MonoBehaviour
         Time.timeScale = 1.0f;
         EnablePlayer();
         CursorDisable();
+        EnableUI();
     }
 
     private void DisablePlayer(PauseType pauseType)
@@ -64,6 +67,9 @@ public class SystemManager : MonoBehaviour
         playerMovement.enabled = false;
         playerInventory.enabled = false;
     }
+
+    private void DisableUI() => inGameUI.SetActive(false);
+    private void EnableUI() => inGameUI.SetActive(true);
 
     private void EnablePlayer()
     {
