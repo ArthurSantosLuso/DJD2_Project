@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -56,6 +58,16 @@ public class SystemManager : MonoBehaviour
         CursorDisable();
     }
 
+    //public void DisableInteraction(int seconds)
+    //{
+    //    StartCoroutine(DisableInteracionWait(seconds));
+    //}
+
+    //private IEnumerator DisableInteracionWait(int seconds)
+    //{
+
+    //}
+
     private void DisablePlayer(PauseType pauseType)
     {
         if (pauseType != PauseType.FocusObject)
@@ -83,5 +95,7 @@ public class SystemManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+
+    
 
 }

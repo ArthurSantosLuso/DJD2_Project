@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
     private void Init()
     {
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);  
 
         audioSources = new List<AudioSource>();
     }
