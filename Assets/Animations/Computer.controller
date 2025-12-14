@@ -84,7 +84,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AdmComputer
+  m_Name: Computer
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Awake
@@ -119,7 +119,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AdmComputerIdle
+  m_Name: ComputerIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -146,7 +146,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AdmComputerTurnOn
+  m_Name: ComputerTurnOn
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -173,7 +173,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AdmComputerTurnOff
+  m_Name: ComputerTurnOff
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
