@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SystemManager : MonoBehaviour
 {
-    public enum PauseType { StopEverything, Inspection, FocusObject}
+    public enum PauseType { StopEverything, Inspection, FocusObject, PhonePause }
 
     private static SystemManager _instance;
 
@@ -34,9 +34,9 @@ public class SystemManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    [SerializeField] private FirstPersonMovement    playerMovement;
-    [SerializeField] private PlayerInteractor       playerInteractor;
-    [SerializeField] private PlayerInventory        playerInventory;
+    [SerializeField] private FirstPersonMovement playerMovement;
+    [SerializeField] private PlayerInteractor playerInteractor;
+    [SerializeField] private PlayerInventory playerInventory;
 
     private void Start()
     {
@@ -45,18 +45,26 @@ public class SystemManager : MonoBehaviour
 
     public void PauseGame(PauseType pauseType)
     {
-        if(pauseType == PauseType.StopEverything)
+        if (pauseType == PauseType.StopEverything)
             Time.timeScale = 0f;
         DisablePlayer(pauseType);
         CursorEnable();
     }
 
-    public void UnpauseGame()
+    public void UnpauseGame(PauseType pauseType = PauseType.Inspection)
     {
-        Time.timeScale = 1.0f;
-        EnablePlayer();
-        CursorDisable();
+        if (pauseType == PauseType.PhonePause)
+        {
+            playerInteractor.enabled = true;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            EnablePlayer();
+            CursorDisable();
+        }
     }
+
 
     //public void DisableInteraction(int seconds)
     //{
@@ -96,6 +104,6 @@ public class SystemManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    
+
 
 }
