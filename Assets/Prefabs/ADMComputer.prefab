@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Administation
+  m_text: Administration
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -777,6 +777,12 @@ MonoBehaviour:
   desktopPanel: {fileID: 1110462970274417622}
   softwerePanel: {fileID: 8975905330512721350}
   textFilePanel: {fileID: 1890087890649026416}
+  inputPasswordButton: {fileID: 2416566470588893401}
+  administrationButton: {fileID: 6562452359655889002}
+  timePasswordButtonUnable: 1
+  computerToBeUnlocked: {fileID: 0}
+  accessDeniedAudio: {fileID: 8300000, guid: 23c415805d5a87745baee713d12ec80f, type: 3}
+  accessGrantedAudio: {fileID: 0}
 --- !u!1 &3030656746976405209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1592,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: -0.121, z: -1.229}
-  m_LocalScale: {x: 0.5, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.55, y: 0.7, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3336432715424003175}
@@ -2024,7 +2030,7 @@ Transform:
   m_GameObject: {fileID: 6485879154841557347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.7860003, y: 0.5, z: -0.4420003}
+  m_LocalPosition: {x: -1.093, y: 0.5, z: -0.442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2574,7 +2580,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8832763272987154905}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 497915407970108027}
+        m_TargetAssemblyTypeName: AdmComputer, Assembly-CSharp
+        m_MethodName: UnlockRagularComputer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9169487961917354659
 GameObject:
   m_ObjectHideFlags: 0
