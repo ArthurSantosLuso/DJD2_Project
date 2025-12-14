@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98e628c854e18f4baf67516a0fdcacf, type: 3}
+  m_Name: BurningInc
+  m_EditorClassIdentifier: 
+  inspectionMaterial: {fileID: 2100000, guid: cae1b99b9c173ad44ad5dc4f0e5ac5ba, type: 2}

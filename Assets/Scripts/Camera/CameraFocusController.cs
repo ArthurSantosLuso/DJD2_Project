@@ -59,7 +59,7 @@ public class CameraFocusController : MonoBehaviour
         isReturning = false;
         targetFocusPoint = focusPoint;
 
-        SystemManager.Instance.PauseGame(SystemManager.PauseType.FocusObject);
+            SystemManager.Instance.PauseGame(SystemManager.PauseType.FocusObject);
     }
 
     public void ExitFocus()

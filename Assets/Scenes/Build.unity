@@ -128,6 +128,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 541883765}
     m_Modifications:
     - target: {fileID: 65468091381737155, guid: f80c988aeb21bdf48a0ce0e5e07518f4, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1824642719}
+    - target: {fileID: 65468091381737155, guid: f80c988aeb21bdf48a0ce0e5e07518f4, type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 1054480984}
@@ -340,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube Inspect
       objectReference: {fileID: 0}
+    - target: {fileID: 1398426824323428421, guid: f09894f0abed3f544b582025f9ebb13c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 98bd75ef9dd9eb54880845a74512cf88, type: 2}
     - target: {fileID: 2191093388393866477, guid: f09894f0abed3f544b582025f9ebb13c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.329
@@ -458,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 4588566418718793722, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705224337322381462, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6757649878166892599, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
       propertyPath: _uiManager
@@ -4314,6 +4326,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec5232487d87de941bb335934c745c72, type: 3}
+--- !u!114 &1824642719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6705224337322381462, guid: 0c71324f3af02374f9c7e6aca2cb00a6, type: 3}
+  m_PrefabInstance: {fileID: 259533803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d423ca16847bcb54697242c065e2b0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1845247295
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5157,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555843731}
     m_Modifications:
+    - target: {fileID: 5363622484044032909, guid: 26540e8d9ab10024095bcc399a788a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6249779132477142526, guid: 26540e8d9ab10024095bcc399a788a87, type: 3}
       propertyPath: m_Name
       value: body_assemble_puzzle
@@ -5177,6 +5204,10 @@ PrefabInstance:
     - target: {fileID: 7008362753068309682, guid: 26540e8d9ab10024095bcc399a788a87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094003905917811931, guid: 26540e8d9ab10024095bcc399a788a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

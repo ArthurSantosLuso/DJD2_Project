@@ -66,11 +66,11 @@ public class InspectionSystem : MonoBehaviour
         if (isInspecting)
             StopInspection();
 
-
-
         isInspectingFromInventory = inspectionFromInventory;
         originalObject = target;
         StartInspection();
+
+        
 
         // -----
         // Remove it later
@@ -88,6 +88,8 @@ public class InspectionSystem : MonoBehaviour
 
         objectClone.localPosition = Vector3.zero;
         objectClone.localRotation = Quaternion.identity;
+
+        ApplyInspectionOverride(target, objectClone.gameObject);
     }
 
     private void HandleObjectRotation()
@@ -110,5 +112,18 @@ public class InspectionSystem : MonoBehaviour
 
             previousMousePosition = Input.mousePosition;
         }
+    }
+
+    private void ApplyInspectionOverride(GameObject original, GameObject clone)
+    {
+        InspectableMaterialOverride overrideData =
+            original.GetComponent<InspectableMaterialOverride>();
+
+        if (overrideData == null || !overrideData.HasOverride)
+            return;
+
+        MeshRenderer cloneRenderer = clone.GetComponentInChildren<MeshRenderer>();
+        if (cloneRenderer != null)
+            cloneRenderer.material = overrideData.InspectionMaterial;
     }
 }

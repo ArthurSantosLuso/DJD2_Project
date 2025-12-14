@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4079052752079996243}
   - component: {fileID: 3065596263530985140}
   - component: {fileID: 6728114121160438400}
+  - component: {fileID: 4096402258454928043}
   m_Layer: 0
   m_Name: Contract
   m_TagString: Untagged
@@ -69,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: cae1b99b9c173ad44ad5dc4f0e5ac5ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,6 +183,19 @@ MonoBehaviour:
   interactionSound: {fileID: 8300000, guid: c9235ceda06d24645832f33167a0f881, type: 3}
   _focusPoint: {fileID: 0}
   isOn: 0
+--- !u!114 &4096402258454928043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805489561219588249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ac34ba247f593409512615c819fae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contractData: {fileID: 11400000, guid: a803229a84fbd2f43b94423202dc3673, type: 2}
 --- !u!1 &4339853982740025914
 GameObject:
   m_ObjectHideFlags: 0
