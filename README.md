@@ -8,6 +8,8 @@ Repository for DJD2 Malebolge game project.
 
 [hand\_placeholder](https://sketchfab.com/3d-models/hand-046563449b144c67a2f8cc54bf86835b) -- License CC Attribution
 
+[body_assemble_puzzle](https://sketchfab.com/3d-models/low-poly-male-base-slender-9a6fd72aa31540f2a6a8e8d236778a2f) -- License CC Attribution
+
 ### Audios
 
 [computer\_interact\_v1](https://pixabay.com/sound-effects/computer-glitch-corrupted-file-96176/) -- License CC0
@@ -15,11 +17,6 @@ Repository for DJD2 Malebolge game project.
 [contract\_inspect\_intro\_v1](https://pixabay.com/sound-effects/paper-flutter-5933/) -- License CC0
 
 [pick\_arm\_sfx\_v1](https://pixabay.com/sound-effects/hit-flesh-03-266308/) -- License CC0
-
-
-
-
-
 
 
 
