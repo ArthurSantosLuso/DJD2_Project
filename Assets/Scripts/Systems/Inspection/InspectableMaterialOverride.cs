@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class InspectableMaterialOverride : MonoBehaviour
 {
-    [SerializeField] private ContractData contractData;
+    [SerializeField] private Material materialOverride;
 
-    public bool HasOverride => contractData != null;
-    public Material InspectionMaterial => contractData.inspectionMaterial;
+    public Material InspectionMaterial => materialOverride;
 }

@@ -119,7 +119,7 @@ public class InspectionSystem : MonoBehaviour
         InspectableMaterialOverride overrideData =
             original.GetComponent<InspectableMaterialOverride>();
 
-        if (overrideData == null || !overrideData.HasOverride)
+        if (overrideData == null)
             return;
 
         MeshRenderer cloneRenderer = clone.GetComponentInChildren<MeshRenderer>();
