@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class InspectionSystem : MonoBehaviour
 {
     [Header("Inspection Settings")]
     [SerializeField] private float      rotationSpeed = 100.0f;
     [SerializeField] private GameObject firstPlane;
+    [SerializeField] Volume globalVolume;
+
+    private DepthOfField blur;
 
     private Transform   objectClone;
     private GameObject  originalObject;
@@ -34,6 +39,10 @@ public class InspectionSystem : MonoBehaviour
         isInspecting = true;
         firstPlane.SetActive(true);
         SystemManager.Instance.PauseGame(SystemManager.PauseType.Inspection);
+        if (globalVolume.profile.TryGet(out blur))
+        {
+            blur.active = true;
+        }
     }
 
     private void StopInspection()
@@ -59,6 +68,11 @@ public class InspectionSystem : MonoBehaviour
         if (!isInspectingFromInventory)
             originalObject.SetActive(true);
         originalObject = null;
+
+        if (globalVolume.profile.TryGet(out blur))
+        {
+            blur.active = false;
+        }
     }
 
     public void InspectObject(GameObject target, bool inspectionFromInventory)

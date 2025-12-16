@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 775880551960805673}
   - component: {fileID: 1398426824323428421}
   - component: {fileID: 3862829519774614056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ContractInspection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2312026282937835754}
   - component: {fileID: 8585472774243495836}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Interaction Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

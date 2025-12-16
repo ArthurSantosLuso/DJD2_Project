@@ -12,7 +12,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Start()
     {
-        cameraTransform = GetComponentInChildren<Camera>().transform;
+        cameraTransform = Camera.main.transform;
         _refreshCurrentInteractive = false;
     }
 

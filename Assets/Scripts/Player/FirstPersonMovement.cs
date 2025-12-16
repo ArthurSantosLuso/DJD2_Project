@@ -29,7 +29,7 @@ public class FirstPersonMovement : MonoBehaviour
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
-        head = GetComponentInChildren<Camera>().transform;
+        head = Camera.main.transform;
     }
 
     private void Update()
