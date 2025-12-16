@@ -166,6 +166,17 @@ public class Interactive : InteractableBase
     {
         GameObject requirement = _playerInventory.GetSelected().gameObject;
 
+        BodyPiece piece = requirement.GetComponent<BodyPiece>();
+        if (piece != null)
+        {
+            BodyController body = GetComponent<BodyController>();
+            body.PlacePiece(piece);
+
+            _playerInventory.Remove(requirement.GetComponent<Interactive>());
+            requirement.SetActive(false);
+            return;
+        }
+
         _playerInventory.Remove(requirement.GetComponent<Interactive>());
 
         ++requirement.GetComponent<Interactive>()._interactionCount;

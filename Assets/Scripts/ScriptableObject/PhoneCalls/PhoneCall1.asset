@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PhoneCall1
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: f4abdbe0029991840a34de49afcdff4b, type: 3}
-  isTrue: 0
+  isTrue: 1

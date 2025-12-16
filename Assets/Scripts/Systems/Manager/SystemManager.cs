@@ -1,6 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SystemManager : MonoBehaviour
@@ -37,10 +34,24 @@ public class SystemManager : MonoBehaviour
     [SerializeField] private FirstPersonMovement playerMovement;
     [SerializeField] private PlayerInteractor playerInteractor;
     [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private UIManager uiManager;
 
     private void Start()
     {
+        //Debug.Log("Passei no Start do SystemManager :D");
         UnpauseGame();
+        //Debug.Log($"Player Interactor state {playerInteractor.enabled}");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (playerMovement.enabled) PauseGame(PauseType.StopEverything);
+            else UnpauseGame();
+
+            uiManager.TogglePauseScreen();
+        }
     }
 
     public void PauseGame(PauseType pauseType)
@@ -103,7 +114,4 @@ public class SystemManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
-
-
-
 }

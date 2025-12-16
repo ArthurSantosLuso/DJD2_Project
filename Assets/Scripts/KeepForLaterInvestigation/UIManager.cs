@@ -13,7 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private int        _interactionCrosshairScale;
     [SerializeField] private Color      _unselectedSlotColor;
     [SerializeField] private Color      _selectedSlotColor;
-    
+
+    [SerializeField] private GameObject _pausePanel;
+
     private TextMeshProUGUI _interactionMessage;
     private Image[]         _inventorySlots;
     private Image[]         _inventoryIcons;
@@ -102,5 +104,13 @@ public class UIManager : MonoBehaviour
             _inventorySlots[index].color = _selectedSlotColor;
             _selectedSlotIndex = index;
         }
+    }
+
+    internal void TogglePauseScreen() => _pausePanel.SetActive(!_pausePanel.activeSelf);
+
+    public void Unpause()
+    {
+        TogglePauseScreen();
+        SystemManager.Instance.UnpauseGame();
     }
 }

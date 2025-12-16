@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0693710fd98b524d971c0540d9ef194, type: 3}
-  m_Name: Test
+  m_Name: Foot
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
   inventoryName: 
-  inventoryIcon: {fileID: 0}
+  inventoryIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   requirements: []
   requirementsMessage: 
   interactionMessages: []
+  inspectionPrefab: {fileID: 0}

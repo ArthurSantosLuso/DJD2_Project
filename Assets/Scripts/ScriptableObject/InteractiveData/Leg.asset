@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0693710fd98b524d971c0540d9ef194, type: 3}
-  m_Name: Arm
+  m_Name: Leg
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: 
-  inventoryIcon: {fileID: 21300000, guid: 0f40613aa970d134798178f7fe5ffa58, type: 3}
+  inventoryName: Severed Leg
+  inventoryIcon: {fileID: 21300000, guid: 1c0e71419a366104f81519af08d5bcc5, type: 3}
   requirements: []
   requirementsMessage: 
-  interactionMessages: []
-  inspectionPrefab: {fileID: 0}
+  interactionMessages:
+  - Take
+  inspectionPrefab: {fileID: 4413559796088124122, guid: a9dfea78ba70e0243ad37d005ca7f35d, type: 3}
