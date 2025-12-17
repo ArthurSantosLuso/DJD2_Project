@@ -19,4 +19,4 @@ MonoBehaviour:
   requirements: []
   requirementsMessage: 
   interactionMessages: []
-  inspectionPrefab: {fileID: 424771331246113121, guid: 14675876f63146a44ab91013396c19ef, type: 3}
+  inspectionPrefab: {fileID: 3166212739619626565, guid: ecb0bca1ab704eb4cb3ddf3a8a70abe1, type: 3}
