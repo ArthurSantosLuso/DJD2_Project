@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7474134759579589785}
   - component: {fileID: 5237896957059530293}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: InteractionCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 4049645515275870294}
   - component: {fileID: 4871058149920115214}
   - component: {fileID: 8289237155130572897}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LiquidBottleInspection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 696470926544036053}
   - component: {fileID: 6767611807040995102}
   - component: {fileID: 6052587354780386115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
