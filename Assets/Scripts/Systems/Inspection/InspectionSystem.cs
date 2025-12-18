@@ -7,7 +7,7 @@ public class InspectionSystem : MonoBehaviour
     [Header("Inspection Settings")]
     [SerializeField] private float      rotationSpeed = 100.0f;
     [SerializeField] private GameObject firstPlane;
-    [SerializeField] Volume globalVolume;
+    [SerializeField] Volume volumeWithBlur;
 
     private DepthOfField blur;
 
@@ -31,7 +31,7 @@ public class InspectionSystem : MonoBehaviour
         if (!isInspecting)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Inspect"))
         {
             StopInspection();
         }
@@ -46,7 +46,7 @@ public class InspectionSystem : MonoBehaviour
         isInspecting = true;
         firstPlane.SetActive(true);
         SystemManager.Instance.PauseGame(SystemManager.PauseType.Inspection);
-        if (globalVolume.profile.TryGet(out blur))
+        if (volumeWithBlur.profile.TryGet(out blur))
         {
             blur.active = true;
         }
@@ -76,7 +76,7 @@ public class InspectionSystem : MonoBehaviour
             originalObject.SetActive(true);
         originalObject = null;
 
-        if (globalVolume.profile.TryGet(out blur))
+        if (volumeWithBlur.profile.TryGet(out blur))
         {
             blur.active = false;
         }

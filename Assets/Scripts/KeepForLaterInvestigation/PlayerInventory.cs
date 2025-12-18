@@ -79,7 +79,7 @@ public class PlayerInventory : MonoBehaviour
         CheckForPlayerSlotSelection();
 
         if (_selectedSlotIndex != -1
-            && Input.GetKeyDown(KeyCode.G))
+            && Input.GetButtonDown("Inspect"))
         {
             _inspectionSystem.InspectObject(GetSelected().gameObject, true);
         }
