@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4079052752079996243}
   - component: {fileID: 3065596263530985140}
   - component: {fileID: 6728114121160438400}
-  - component: {fileID: 4096402258454928043}
+  - component: {fileID: 8730089246066527037}
   m_Layer: 0
   m_Name: Contract
   m_TagString: Untagged
@@ -183,7 +183,7 @@ MonoBehaviour:
   interactionSound: {fileID: 8300000, guid: c9235ceda06d24645832f33167a0f881, type: 3}
   _focusPoint: {fileID: 0}
   isOn: 0
---- !u!114 &4096402258454928043
+--- !u!114 &8730089246066527037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,10 +192,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 805489561219588249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ac34ba247f593409512615c819fae3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f099017bbabe914fbdf4303f6e029cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contractData: {fileID: 11400000, guid: a803229a84fbd2f43b94423202dc3673, type: 2}
+  materialOverride: {fileID: 0}
 --- !u!1 &4339853982740025914
 GameObject:
   m_ObjectHideFlags: 0

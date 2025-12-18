@@ -28,7 +28,7 @@ public class SystemManager : MonoBehaviour
     private void Init()
     {
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     [SerializeField] private FirstPersonMovement playerMovement;

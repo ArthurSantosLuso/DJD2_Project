@@ -105,7 +105,7 @@ public class Interactive : InteractableBase
     private void PickUpInteractive()
     {
         _playerInventory.Add(gameObject.GetComponent<Interactive>());
-        AudioManager.Instance.PlaySound(interactionSound);
+        PlayInteractionAudio();
         gameObject.SetActive(false);
     }
 

@@ -7,7 +7,7 @@ public class InspectionSystem : MonoBehaviour
     [Header("Inspection Settings")]
     [SerializeField] private float      rotationSpeed = 100.0f;
     [SerializeField] private GameObject firstPlane;
-    [SerializeField] Volume globalVolume;
+    [SerializeField] Volume volumeWithBlur;
 
     private DepthOfField blur;
 
@@ -17,21 +17,28 @@ public class InspectionSystem : MonoBehaviour
     private bool        isInspecting = false;
     private bool        isInspectingFromInventory = false;
 
-    // Remove it later
-    [SerializeField] GameObject selfCardPanel;
-    [SerializeField] GameObject coworkerCardPanel;
+    [Header("Zoom Settings")]
+    [SerializeField] private float zoomSpeed = 2.0f;
+    [SerializeField] private float zoomLerpSpeed = 10.0f;
+    [SerializeField] private float minZoomZ = 0.3f;
+    [SerializeField] private float maxZoomZ = 2.0f;
+
+    private float targetZoomZ;
+    private float originalPlaneZ;
 
     private void Update()
     {
         if (!isInspecting)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Inspect"))
         {
             StopInspection();
         }
 
         HandleObjectRotation();
+        HandleZoom();
+        UpdateZoomPosition();
     }
 
     private void StartInspection()
@@ -39,10 +46,13 @@ public class InspectionSystem : MonoBehaviour
         isInspecting = true;
         firstPlane.SetActive(true);
         SystemManager.Instance.PauseGame(SystemManager.PauseType.Inspection);
-        if (globalVolume.profile.TryGet(out blur))
+        if (volumeWithBlur.profile.TryGet(out blur))
         {
             blur.active = true;
         }
+
+        originalPlaneZ = firstPlane.transform.localPosition.z;
+        targetZoomZ = originalPlaneZ;
     }
 
     private void StopInspection()
@@ -51,15 +61,12 @@ public class InspectionSystem : MonoBehaviour
 
         SystemManager.Instance.UnpauseGame();
 
+        Vector3 resetPos = firstPlane.transform.localPosition;
+        resetPos.z = originalPlaneZ;
+        firstPlane.transform.localPosition = resetPos;
+
         firstPlane.SetActive(false);
 
-        // -----
-        // Remove it later
-        if (originalObject.name == "IDCardSelf")
-            selfCardPanel.SetActive(false);
-        else if (originalObject.name == "IDCardCoworker")
-            coworkerCardPanel.SetActive(false);
-        // -----
         if (objectClone != null)
             Destroy(objectClone.gameObject);
 
@@ -69,7 +76,7 @@ public class InspectionSystem : MonoBehaviour
             originalObject.SetActive(true);
         originalObject = null;
 
-        if (globalVolume.profile.TryGet(out blur))
+        if (volumeWithBlur.profile.TryGet(out blur))
         {
             blur.active = false;
         }
@@ -83,16 +90,6 @@ public class InspectionSystem : MonoBehaviour
         isInspectingFromInventory = inspectionFromInventory;
         originalObject = target;
         StartInspection();
-
-        
-
-        // -----
-        // Remove it later
-        if (originalObject.name == "IDCardSelf")
-            selfCardPanel.SetActive(true);
-        else if (originalObject.name == "IDCardCoworker")
-            coworkerCardPanel.SetActive(true);
-        // -----
 
         GameObject inspecPrefab = target.GetComponent<Interactive>().interactiveData.inspectionPrefab;
 
@@ -128,6 +125,7 @@ public class InspectionSystem : MonoBehaviour
         }
     }
 
+
     private void ApplyInspectionOverride(GameObject original, GameObject clone)
     {
         InspectableMaterialOverride overrideData =
@@ -140,4 +138,32 @@ public class InspectionSystem : MonoBehaviour
         if (cloneRenderer != null)
             cloneRenderer.material = overrideData.InspectionMaterial;
     }
+
+    private void UpdateZoomPosition()
+    {
+        Vector3 pos = firstPlane.transform.localPosition;
+
+        pos.z = Mathf.Lerp(
+            pos.z,
+            targetZoomZ,
+            zoomLerpSpeed * Time.deltaTime
+        );
+
+        firstPlane.transform.localPosition = pos;
+    }
+
+    private void HandleZoom()
+    {
+        float scroll = Input.mouseScrollDelta.y;
+
+        if (scroll == 0)
+            return;
+
+        targetZoomZ -= scroll * zoomSpeed * Time.deltaTime;
+
+        // limit the zoom to the max and min value
+        targetZoomZ = Mathf.Clamp(targetZoomZ, minZoomZ, maxZoomZ);
+    }
+
+
 }

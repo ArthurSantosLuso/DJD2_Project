@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 5581175439020442810}
   - component: {fileID: 2996361957481803599}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: LiquidBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

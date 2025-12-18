@@ -404,8 +404,10 @@ MonoBehaviour:
   rotationSpeed: 100
   firstPlane: {fileID: 519158129001106655}
   globalVolume: {fileID: 0}
-  selfCardPanel: {fileID: 0}
-  coworkerCardPanel: {fileID: 0}
+  zoomSpeed: 2
+  zoomLerpSpeed: 10
+  minZoomZ: 0.3
+  maxZoomZ: 2
 --- !u!114 &8705081628916778366
 MonoBehaviour:
   m_ObjectHideFlags: 0

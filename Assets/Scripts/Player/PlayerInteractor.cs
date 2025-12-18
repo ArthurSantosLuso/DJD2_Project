@@ -49,7 +49,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void DetectInput()
     {
-        if (Input.GetKeyDown(KeyCode.F) && currentTarget != null)
+        if (Input.GetButtonDown("Interact") && currentTarget != null)
         {
             currentTarget.Interact();
         }

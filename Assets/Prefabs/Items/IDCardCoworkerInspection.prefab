@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8191131601043135617}
   - component: {fileID: 1074831994733446082}
   - component: {fileID: 72541587861710031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IDCardCoworkerInspection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8269436295668233268}
   - component: {fileID: 8555698544261392424}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
