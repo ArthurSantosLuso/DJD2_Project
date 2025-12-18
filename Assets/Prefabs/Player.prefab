@@ -404,8 +404,6 @@ MonoBehaviour:
   rotationSpeed: 100
   firstPlane: {fileID: 519158129001106655}
   globalVolume: {fileID: 0}
-  selfCardPanel: {fileID: 0}
-  coworkerCardPanel: {fileID: 0}
   zoomSpeed: 2
   zoomLerpSpeed: 10
   minZoomZ: 0.3
@@ -513,7 +511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3834045671808663204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d77b3faf029683348866bddb299d141e, type: 3}
   m_Name: 
