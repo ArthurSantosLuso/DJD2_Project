@@ -10,9 +10,16 @@ public class BodyController : MonoBehaviour
 
     private List<BodyPiece> placedPieces = new List<BodyPiece>();
 
+    public Interactive interactive;
+
+    private void Start()
+    {
+        playerInventory.Add(interactive);
+    }
+
     public void PlacePiece(BodyPiece piece)
     {
-        placedPieces.Add(piece);
+            placedPieces.Add(piece);
         piece.BodyPart.SetActive(true);
 
         if (placedPieces.Count == totalPieces)
