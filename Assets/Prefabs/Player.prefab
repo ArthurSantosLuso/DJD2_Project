@@ -403,7 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   firstPlane: {fileID: 519158129001106655}
-  globalVolume: {fileID: 0}
+  volumeWithBlur: {fileID: 0}
   zoomSpeed: 2
   zoomLerpSpeed: 10
   minZoomZ: 0.3
