@@ -8,12 +8,12 @@ public class PlayerInteractor : MonoBehaviour
 
     private Transform   cameraTransform;
     private Interactive currentTarget;
-    private bool        _refreshCurrentInteractive;
+    //private bool        _refreshCurrentInteractive;
 
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-        _refreshCurrentInteractive = false;
+        //_refreshCurrentInteractive = false;
     }
 
     void Update()
@@ -69,8 +69,8 @@ public class PlayerInteractor : MonoBehaviour
         if (debugMode) Debug.Log("Not Looking at an interactable");
     }
 
-    public void RefreshCurrentInteractive()
-    {
-        _refreshCurrentInteractive = true;
-    }
+    //public void RefreshCurrentInteractive()
+    //{
+    //    _refreshCurrentInteractive = true;
+    //}
 }

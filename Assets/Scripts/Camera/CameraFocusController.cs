@@ -17,7 +17,8 @@ public class CameraFocusController : MonoBehaviour
 
     private void Start()
     {
-        cam = playerCamera;
+        //cam = playerCamera;
+        cam = transform;
 
         normalPosition = new GameObject("CameraNormalPoint").transform;
         normalPosition.SetParent(cam.parent);
