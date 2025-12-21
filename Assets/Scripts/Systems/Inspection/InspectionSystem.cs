@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -16,6 +17,7 @@ public class InspectionSystem : MonoBehaviour
     private Vector3     previousMousePosition;
     private bool        isInspecting = false;
     private bool        isInspectingFromInventory = false;
+    private bool        changedStateThisFrame;
 
     [Header("Zoom Settings")]
     [SerializeField] private float zoomSpeed = 2.0f;
@@ -26,12 +28,13 @@ public class InspectionSystem : MonoBehaviour
     private float targetZoomZ;
     private float originalPlaneZ;
 
+
     private void Update()
     {
-        if (!isInspecting)
+        if (isInspecting == false || changedStateThisFrame == true)
             return;
 
-        if (Input.GetButtonDown("Inspect"))
+        if (CheckInput())
         {
             StopInspection();
         }
@@ -41,8 +44,16 @@ public class InspectionSystem : MonoBehaviour
         UpdateZoomPosition();
     }
 
+    private void LateUpdate()
+    {
+        changedStateThisFrame = false;
+    }
+
+    private bool CheckInput() => Input.GetButtonDown("Inspect") || Input.GetButtonDown("Interact");
+
     private void StartInspection()
     {
+        changedStateThisFrame = true;
         isInspecting = true;
         firstPlane.SetActive(true);
         SystemManager.Instance.PauseGame(SystemManager.PauseType.Inspection);
@@ -164,6 +175,4 @@ public class InspectionSystem : MonoBehaviour
         // limit the zoom to the max and min value
         targetZoomZ = Mathf.Clamp(targetZoomZ, minZoomZ, maxZoomZ);
     }
-
-
 }
