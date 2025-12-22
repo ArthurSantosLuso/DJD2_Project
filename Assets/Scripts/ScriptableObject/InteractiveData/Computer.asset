@@ -18,5 +18,6 @@ MonoBehaviour:
   inventoryIcon: {fileID: 0}
   requirements: []
   requirementsMessage: 
-  interactionMessages: []
+  interactionMessages:
+  - Use
   inspectionPrefab: {fileID: 0}

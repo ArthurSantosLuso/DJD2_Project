@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0693710fd98b524d971c0540d9ef194, type: 3}
-  m_Name: BottleWater
+  m_Name: BottleAlcohol
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: Bottle Water
-  inventoryIcon: {fileID: 0}
+  inventoryName: Achool
+  inventoryIcon: {fileID: 21300000, guid: baac38db0f989dc41b8c632c62abdc5d, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages: []

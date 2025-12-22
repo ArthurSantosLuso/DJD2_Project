@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: 
-  inventoryIcon: {fileID: 21300000, guid: 5e3140d7b6bdf5c4e8b2ae206af14137, type: 3}
+  inventoryName: Severed Finger
+  inventoryIcon: {fileID: 21300000, guid: 097105ec92782174a9795a10bf3a845c, type: 3}
   requirements: []
   requirementsMessage: 
-  interactionMessages: []
+  interactionMessages:
+  - Insert Severed Finger
   inspectionPrefab: {fileID: 495592508557396698, guid: 9ac4f95d1b89a7f4790edf491d7c1fcb, type: 3}

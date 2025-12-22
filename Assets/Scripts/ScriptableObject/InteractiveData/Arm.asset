@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: 
-  inventoryIcon: {fileID: 21300000, guid: 0f40613aa970d134798178f7fe5ffa58, type: 3}
+  inventoryName: Severed Arm
+  inventoryIcon: {fileID: 21300000, guid: ae1fe9f3c8190ee43ab570be230f1e84, type: 3}
   requirements: []
   requirementsMessage: 
-  interactionMessages: []
+  interactionMessages:
+  - Insert Severed Arm
   inspectionPrefab: {fileID: 4596495589208721896, guid: d98e4d73706a4754289bc73e521ca7b6, type: 3}

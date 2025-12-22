@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
-  inventoryName: Someone's work card
+  inventoryName: Work Card
   inventoryIcon: {fileID: 21300000, guid: 0f40613aa970d134798178f7fe5ffa58, type: 3}
   requirements: []
   requirementsMessage: 

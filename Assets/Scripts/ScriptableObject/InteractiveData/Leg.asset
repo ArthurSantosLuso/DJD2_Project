@@ -15,9 +15,9 @@ MonoBehaviour:
   type: 0
   startsOn: 1
   inventoryName: Severed Leg
-  inventoryIcon: {fileID: 21300000, guid: 1c0e71419a366104f81519af08d5bcc5, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 731d1e738574ae648a8409f98e869e8f, type: 3}
   requirements: []
   requirementsMessage: 
   interactionMessages:
-  - Take
+  - Insert Severed Leg
   inspectionPrefab: {fileID: 4545067452043031727, guid: f3883c04f2f638e4ab9514bb99d733ed, type: 3}
