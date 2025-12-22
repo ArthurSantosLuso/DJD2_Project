@@ -426,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 2.5
   debugMode: 0
+  uiManager: {fileID: 0}
 --- !u!114 &6757649878166892599
 MonoBehaviour:
   m_ObjectHideFlags: 0
