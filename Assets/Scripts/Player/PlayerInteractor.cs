@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private float  interactRange = 5f;
-    [SerializeField] private bool   debugMode = false;
+    [SerializeField] private float      interactRange = 5f;
+    [SerializeField] private bool       debugMode = false;
+    [SerializeField] private UIManager  uiManager;
 
     private Transform   cameraTransform;
     private Interactive currentTarget;
-    //private bool        _refreshCurrentInteractive;
+    private bool        _refreshCurrentInteractive;
 
     private void Start()
     {
-        cameraTransform = Camera.main.transform;
-        //_refreshCurrentInteractive = false;
+        cameraTransform             = Camera.main.transform;
+        currentTarget               = null;
+        _refreshCurrentInteractive  = false;
     }
 
     void Update()
@@ -43,7 +45,7 @@ public class PlayerInteractor : MonoBehaviour
             if (currentTarget != null)
                 ClearCurrentTarget();
         }
-        else if (interactive != currentTarget)
+        else if (interactive != currentTarget || _refreshCurrentInteractive)
             SetCurrentTarget(interactive);
     }
 
@@ -52,12 +54,27 @@ public class PlayerInteractor : MonoBehaviour
         if (Input.GetButtonDown("Interact") && currentTarget != null)
         {
             currentTarget.Interact();
+            _refreshCurrentInteractive = true;
         }
     }
 
     private void SetCurrentTarget(Interactive newTarget)
     {
-        currentTarget = newTarget;
+        currentTarget               = newTarget;
+        _refreshCurrentInteractive  = false;
+
+        string interactionMessage = newTarget.GetInteractionMessage();
+
+        if (interactionMessage != null && interactionMessage.Length > 0)
+        {
+            uiManager.ShowInteractionCrosshair();
+            uiManager.ShowInteractionPanel(interactionMessage);
+        }
+        else
+        {
+            uiManager.ShowDefaultCrosshair();
+            uiManager.HideInteractionPanel();
+        }
         currentTarget.ApplyFocus();
         if (debugMode) Debug.Log("Looking at an interactable");
     }
@@ -66,11 +83,15 @@ public class PlayerInteractor : MonoBehaviour
     {
         currentTarget.LoseFocus();
         currentTarget = null;
+
+        uiManager.ShowDefaultCrosshair();
+        uiManager.HideInteractionPanel();
+
         if (debugMode) Debug.Log("Not Looking at an interactable");
     }
 
-    //public void RefreshCurrentInteractive()
-    //{
-    //    _refreshCurrentInteractive = true;
-    //}
+    public void RefreshCurrentInteractive()
+    {
+        _refreshCurrentInteractive = true;
+    }
 }
