@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class BodyController : MonoBehaviour
@@ -12,7 +10,10 @@ public class BodyController : MonoBehaviour
 
     public void PlacePiece(BodyPiece piece)
     {
-            placedPieces.Add(piece);
+        placedPieces.Add(piece);
+        
+        playerInventory.Remove(piece.GetComponent<Interactive>());
+
         piece.BodyPart.SetActive(true);
 
         if (placedPieces.Count == totalPieces)
@@ -57,7 +58,6 @@ public class BodyController : MonoBehaviour
         foreach (BodyPiece piece in placedPieces)
         {
             GameObject obj = piece.gameObject;
-            obj.SetActive(true);
             inventory.Add(obj.GetComponent<Interactive>());
         }
     }

@@ -56,7 +56,7 @@ public class PlayerInventory : MonoBehaviour
 
         _uiManager.SelectInventorySlot(index);
 
-        //_playerInteractor.RefreshCurrentInteractive();
+        _playerInteractor.RefreshCurrentInteractive();
     }
 
     public string GetSelectedInteractionMessage()

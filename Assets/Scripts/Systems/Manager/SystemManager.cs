@@ -38,9 +38,7 @@ public class SystemManager : MonoBehaviour
 
     private void Start()
     {
-        //Debug.Log("Passei no Start do SystemManager :D");
         UnpauseGame();
-        //Debug.Log($"Player Interactor state {playerInteractor.enabled}");
     }
 
     private void Update()
