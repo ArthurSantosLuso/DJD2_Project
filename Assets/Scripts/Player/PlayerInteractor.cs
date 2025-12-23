@@ -67,13 +67,11 @@ public class PlayerInteractor : MonoBehaviour
 
         if (interactionMessage != null && interactionMessage.Length > 0)
         {
-            uiManager.ShowInteractionCrosshair();
-            uiManager.ShowInteractionPanel(interactionMessage);
+            SystemManager.Instance.ShowUI(interactionMessage, true);
         }
         else
         {
-            uiManager.ShowDefaultCrosshair();
-            uiManager.HideInteractionPanel();
+            SystemManager.Instance.HideUI();
         }
         currentTarget.ApplyFocus();
         if (debugMode) Debug.Log("Looking at an interactable");

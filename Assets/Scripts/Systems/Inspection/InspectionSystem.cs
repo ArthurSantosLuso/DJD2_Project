@@ -8,7 +8,7 @@ public class InspectionSystem : MonoBehaviour
     [Header("Inspection Settings")]
     [SerializeField] private float      rotationSpeed = 100.0f;
     [SerializeField] private GameObject firstPlane;
-    [SerializeField] Volume volumeWithBlur;
+    [SerializeField] Volume             volumeWithBlur;
 
     private DepthOfField blur;
 
@@ -64,6 +64,8 @@ public class InspectionSystem : MonoBehaviour
 
         originalPlaneZ = firstPlane.transform.localPosition.z;
         targetZoomZ = originalPlaneZ;
+
+        SystemManager.Instance.HideUI();
     }
 
     private void StopInspection()
@@ -71,6 +73,7 @@ public class InspectionSystem : MonoBehaviour
         isInspecting = false;
 
         SystemManager.Instance.UnpauseGame();
+        SystemManager.Instance.ShowUI();
 
         Vector3 resetPos = firstPlane.transform.localPosition;
         resetPos.z = originalPlaneZ;

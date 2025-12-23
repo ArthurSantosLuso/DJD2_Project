@@ -52,24 +52,27 @@ public class UIManager : MonoBehaviour
 
     public void ShowDefaultCrosshair()
     {
+        _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_defaultCrosshairScale, _defaultCrosshairScale, _defaultCrosshairScale);
     }
     
     public void ShowInteractionCrosshair()
     {
+        _interactionCrosshair.SetActive(true);
         _interactionCrosshair.transform.localScale = new Vector3(_interactionCrosshairScale, _interactionCrosshairScale, _interactionCrosshairScale);
     }
 
-    public void HideInteractionPanel()
-    {
-        _interactionPanel.SetActive(false);
-    }
+    public void HideInteractionCrosshair() 
+        => _interactionCrosshair.SetActive(false);
 
-    public void ShowInteractionPanel(string message)
-    {
-        _interactionMessage.text = message;
-        _interactionPanel.SetActive(true);
-    }
+    public void HideInteractionPanel() 
+        => _interactionPanel.SetActive(false);
+
+    public void SetInteractionPanelMessage(string message) 
+        => _interactionMessage.text = message;
+
+    public void ShowInteractionPanel() 
+        => _interactionPanel.SetActive(true);
 
     public int GetInventorySlotCount()
     {

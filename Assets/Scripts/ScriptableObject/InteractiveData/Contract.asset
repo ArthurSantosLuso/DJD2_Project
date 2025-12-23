@@ -20,5 +20,4 @@ MonoBehaviour:
   requirementsMessage: 
   interactionMessages:
   - Look Closer
-  - Stop Looking
   inspectionPrefab: {fileID: 805489561219588249, guid: d322dabd085bba4488105d1b227efbce, type: 3}

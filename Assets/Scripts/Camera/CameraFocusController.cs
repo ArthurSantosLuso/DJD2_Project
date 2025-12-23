@@ -17,7 +17,6 @@ public class CameraFocusController : MonoBehaviour
 
     private void Start()
     {
-        //cam = playerCamera;
         cam = transform;
 
         normalPosition = new GameObject("CameraNormalPoint").transform;
@@ -34,6 +33,8 @@ public class CameraFocusController : MonoBehaviour
                 Vector3.Lerp(cam.position, targetFocusPoint.position, moveSpeed * Time.deltaTime);
             cam.rotation =
                 Quaternion.Lerp(cam.rotation, targetFocusPoint.rotation, moveSpeed * Time.deltaTime);
+
+            SystemManager.Instance.HideUI();
         }
 
         if (isReturning)
@@ -60,7 +61,8 @@ public class CameraFocusController : MonoBehaviour
         isReturning = false;
         targetFocusPoint = focusPoint;
 
-            SystemManager.Instance.PauseGame(SystemManager.PauseType.FocusObject);
+        SystemManager.Instance.HideUI();
+        SystemManager.Instance.PauseGame(SystemManager.PauseType.FocusObject);
     }
 
     public void ExitFocus()

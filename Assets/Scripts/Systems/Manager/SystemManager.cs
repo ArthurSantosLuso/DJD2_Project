@@ -74,6 +74,11 @@ public class SystemManager : MonoBehaviour
         }
     }
 
+    public void HideUI() => DisableUI();
+
+    public void ShowUI(string message = "", bool showInteractionPanel = false)
+        => EnableUI(message, showInteractionPanel);
+
 
     //public void DisableInteraction(int seconds)
     //{
@@ -111,5 +116,22 @@ public class SystemManager : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void DisableUI()
+    {
+        uiManager.HideInteractionPanel();
+        uiManager.HideInteractionCrosshair();
+    }
+
+    private void EnableUI(string text, bool activateInteractioPanel)
+    {
+        uiManager.ShowDefaultCrosshair();
+
+        if (activateInteractioPanel)
+        {
+            uiManager.SetInteractionPanelMessage(text);
+            uiManager.ShowInteractionPanel();
+        }
     }
 }

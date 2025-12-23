@@ -60,7 +60,8 @@ public class PlayerInteraction : MonoBehaviour
         if (interactionMessage != null && interactionMessage.Length > 0)
         {
             _uiManager.ShowInteractionCrosshair();
-            _uiManager.ShowInteractionPanel(interactionMessage);
+            _uiManager.SetInteractionPanelMessage(interactionMessage);
+            _uiManager.ShowInteractionPanel();
         }
         else
         {
