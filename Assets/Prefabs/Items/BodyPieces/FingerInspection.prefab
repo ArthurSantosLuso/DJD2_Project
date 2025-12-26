@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4896705289679335411}
   - component: {fileID: 421713336742949375}
   - component: {fileID: 5058768335942010557}
-  - component: {fileID: 1046129116505941825}
   m_Layer: 7
   m_Name: FingerInspection
   m_TagString: Untagged
@@ -537,27 +536,6 @@ MonoBehaviour:
   interactionSound: {fileID: 8300000, guid: f518f96e409736e43b884c981eea6f68, type: 3}
   _focusPoint: {fileID: 0}
   isOn: 0
---- !u!65 &1046129116505941825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495592508557396698}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.08, z: 0.08}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1445434265551989241
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +545,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 891754133039513143}
-  - component: {fileID: 3105963560558200157}
   m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
@@ -590,24 +567,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1556675362037445366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3105963560558200157
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445434265551989241}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.08, z: 0.08}
-  m_Center: {x: 0, y: 0, z: 0}
