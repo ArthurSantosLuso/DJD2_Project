@@ -37,6 +37,7 @@ public class InspectionSystem : MonoBehaviour
         if (CheckInput())
         {
             StopInspection();
+            return;
         }
 
         HandleObjectRotation();
@@ -56,7 +57,7 @@ public class InspectionSystem : MonoBehaviour
         changedStateThisFrame = true;
         isInspecting = true;
         firstPlane.SetActive(true);
-        SystemManager.Instance.PauseGame(SystemManager.PauseType.Inspection);
+        SystemManager.Instance.PauseGame(SystemManager.PauseType.FocusObject);
         if (volumeWithBlur.profile.TryGet(out blur))
         {
             blur.active = true;
