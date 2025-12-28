@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClockController : MonoBehaviour
@@ -9,13 +10,54 @@ public class ClockController : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed;
 
+
+    private bool minuteInCorrectZone;
+    private bool hourInCorrectZone;
+
+
     private void Update()
     {
         HandleInput();
     }
 
+    public void OnHandEnterZone(string handId)
+    {
+        if (handId == "Minute")
+            minuteInCorrectZone = true;
+
+        if (handId == "Hour")
+            hourInCorrectZone = true;
+    }
+
+    public void OnHandExitZone(string handId)
+    {
+        if (handId == "Minute")
+            minuteInCorrectZone = false;
+
+        if (handId == "Hour")
+            hourInCorrectZone = false;
+    }
+
+    private void VerifyPuzzle()
+    {
+        if (minuteInCorrectZone && hourInCorrectZone)
+        {
+            Debug.Log("Puzzle resolvido!");
+        }
+        else
+        {
+            Debug.Log("Hora incorreta");
+        }
+    }
+
     private void HandleInput()
     {
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            VerifyPuzzle();
+            return;
+        }
+
         float direction = 0f;
 
         if (Input.GetKey(KeyCode.K))

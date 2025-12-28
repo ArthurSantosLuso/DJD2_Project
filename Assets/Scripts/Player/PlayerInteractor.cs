@@ -30,9 +30,8 @@ public class PlayerInteractor : MonoBehaviour
         if (debugMode)
             Debug.DrawRay(ray.origin, ray.direction * interactRange, Color.red);
 
-        LayerMask layerMask = LayerMask.GetMask("Interactable");
-
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange/*, layerMask*/))
+        
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
             UpdateCurrentInteractive(hit.collider);
         else if (currentTarget != null)
             ClearCurrentTarget();
