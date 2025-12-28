@@ -14,6 +14,7 @@ public class RegularComputer : MonoBehaviour
     [SerializeField] private GameObject passwordPanel;
     [SerializeField] private GameObject investmentPanel;
     [SerializeField] private TMP_Text titleText;
+    [SerializeField] private DrawerController drawerToBeUnlocked;
 
     [Header("Buttons")]
     [SerializeField] private Button investmentButton;
@@ -68,6 +69,7 @@ public class RegularComputer : MonoBehaviour
                     state = PuzzleState.End;
                     softwarePanel.SetActive(true);
                     investmentPanel.SetActive(false);
+                    drawerToBeUnlocked.UnlockDrawer();
                 }
                 else
                 {

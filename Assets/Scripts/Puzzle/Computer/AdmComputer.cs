@@ -17,10 +17,10 @@ public class AdmComputer : MonoBehaviour
     [SerializeField] private float timePasswordButtonUnable;
 
     [SerializeField] private RegularComputer computerToBeUnlocked;
+    [SerializeField] private DrawerController drawerToBeUnlocked;
 
     [Header("Audio")]
     [SerializeField] private AudioClip accessDeniedAudio;
-    [SerializeField] private AudioClip accessGrantedAudio;
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class AdmComputer : MonoBehaviour
     {
         if (inputField.text == "319256")
         {
-            AudioManager.Instance.PlaySound(accessGrantedAudio);
+            drawerToBeUnlocked.UnlockDrawer();
             Debug.Log("Acertou a password!");
             desktopPanel.SetActive(true);
             passwordPanel.SetActive(false);

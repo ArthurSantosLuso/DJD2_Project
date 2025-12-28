@@ -30,7 +30,9 @@ public class PlayerInteractor : MonoBehaviour
         if (debugMode)
             Debug.DrawRay(ray.origin, ray.direction * interactRange, Color.red);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, LayerMask.NameToLayer("Interactable")))
+        LayerMask layerMask = LayerMask.GetMask("Interactable");
+
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange/*, layerMask*/))
             UpdateCurrentInteractive(hit.collider);
         else if (currentTarget != null)
             ClearCurrentTarget();
@@ -46,7 +48,10 @@ public class PlayerInteractor : MonoBehaviour
                 ClearCurrentTarget();
         }
         else if (interactive != currentTarget || _refreshCurrentInteractive)
+        {
+            if (currentTarget != null) ClearCurrentTarget();
             SetCurrentTarget(interactive);
+        }
     }
 
     private void DetectInput()

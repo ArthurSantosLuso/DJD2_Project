@@ -111,6 +111,16 @@ public class Interactive : InteractableBase
 
     private void DoDirectInteraction()
     {
+
+        if (TryGetComponent(out DrawerController drawer))
+        {
+            if (drawer.IsLocked)
+            {
+                drawer.TryPlayLockedSound();
+                return;
+            }
+        }
+
         ++_interactionCount;
 
         if (IsType(InteractiveData.Type.InteractOnce))
