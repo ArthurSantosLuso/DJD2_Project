@@ -5976,6 +5976,17 @@ Transform:
   - {fileID: 985262549}
   m_Father: {fileID: 1698813713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000823350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6769545920368934697, guid: 01d1c2b1b21093c498cb21bee6a68ca3, type: 3}
+  m_PrefabInstance: {fileID: 7961402419798264769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736ed7de2f4f59c4682ac93a48c60ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2054039570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6129,6 +6140,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2531854627682076257, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
+      propertyPath: drawerToBeUnlocked
+      value: 
+      objectReference: {fileID: 2000823350}
+    - target: {fileID: 2531854627682076257, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
       propertyPath: 'phoneAudios.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 7986b59b4e84e644c95f5e81813ec0b8, type: 2}
@@ -6136,9 +6151,17 @@ PrefabInstance:
       propertyPath: 'phoneAudios.Array.data[3]'
       value: 
       objectReference: {fileID: 11400000, guid: b1ed7c1455a397b4391af7f15377ef10, type: 2}
+    - target: {fileID: 2566354609935162333, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4110153846521275878, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.498
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769757149729066786, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8003241007309543322, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
       propertyPath: m_Name
@@ -6147,6 +6170,10 @@ PrefabInstance:
     - target: {fileID: 8003241007309543322, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096984268343728002, guid: 80f672483022fa944ad6cd13045fd449, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6289,6 +6316,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 555843731}
     m_Modifications:
+    - target: {fileID: 595229113625728651, guid: 01d1c2b1b21093c498cb21bee6a68ca3, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 848802901896152591, guid: 01d1c2b1b21093c498cb21bee6a68ca3, type: 3}
       propertyPath: playerInventory
       value: 
