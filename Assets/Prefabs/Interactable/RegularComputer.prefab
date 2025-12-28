@@ -121,6 +121,7 @@ MonoBehaviour:
   passwordPanel: {fileID: 6058396073908793933}
   investmentPanel: {fileID: 2235014389322940968}
   titleText: {fileID: 6498812864609342199}
+  drawerToBeUnlocked: {fileID: 0}
   investmentButton: {fileID: 1828853946506989446}
   negativeButton: {fileID: 3541728793229785181}
   positiveButton: {fileID: 5379533187019989773}
@@ -1614,7 +1615,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4110153846521275878}
-  - {fileID: 7604978341254095680}
   - {fileID: 1858109411690325437}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -1887,56 +1887,3 @@ MonoBehaviour:
   interactionSound: {fileID: 8300000, guid: c0a361d6f9bb5a049b41ce42aeb82670, type: 3}
   _focusPoint: {fileID: 4110153846521275878}
   isOn: 0
---- !u!1 &9096984268343728002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7604978341254095680}
-  - component: {fileID: 2566354609935162333}
-  m_Layer: 3
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7604978341254095680
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9096984268343728002}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1086633407051166415}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2566354609935162333
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9096984268343728002}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.5, y: 0.5, z: -0.5}
