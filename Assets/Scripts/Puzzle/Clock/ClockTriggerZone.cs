@@ -3,21 +3,28 @@ using UnityEngine;
 public class ClockTriggerZone : MonoBehaviour
 {
     [SerializeField] private ClockController clockController;
-    [SerializeField] private string handId;
+    [SerializeField] private string expectedHandTag;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("ClockHand"))
+        if (!other.CompareTag(expectedHandTag))
+        {
+            Debug.Log($"Hand {other.tag} entrou, mas não pertence a esse collider");
             return;
+        }
 
-        clockController.OnHandEnterZone(handId);
+        Debug.Log($"Hand {other.tag} entrou, e pertence a esse collider");
+        clockController.OnHandEnterZone(expectedHandTag);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("ClockHand"))
+        if (!other.CompareTag(expectedHandTag))
+        {
+            Debug.Log($"Hand {other.tag} entrou, mas não pertence a esse collider");
             return;
+        }
 
-        clockController.OnHandExitZone(handId);
+        clockController.OnHandExitZone(expectedHandTag);
     }
 }

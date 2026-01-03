@@ -14,6 +14,13 @@ public class ClockController : MonoBehaviour
     private bool minuteInCorrectZone;
     private bool hourInCorrectZone;
 
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
 
     private void Update()
     {
@@ -22,19 +29,19 @@ public class ClockController : MonoBehaviour
 
     public void OnHandEnterZone(string handId)
     {
-        if (handId == "Minute")
+        if (handId == "MinuteHand")
             minuteInCorrectZone = true;
 
-        if (handId == "Hour")
+        if (handId == "HourHand")
             hourInCorrectZone = true;
     }
 
     public void OnHandExitZone(string handId)
     {
-        if (handId == "Minute")
+        if (handId == "MinuteHand")
             minuteInCorrectZone = false;
 
-        if (handId == "Hour")
+        if (handId == "HourHand")
             hourInCorrectZone = false;
     }
 
@@ -42,7 +49,8 @@ public class ClockController : MonoBehaviour
     {
         if (minuteInCorrectZone && hourInCorrectZone)
         {
-            Debug.Log("Puzzle resolvido!");
+            InteractionManager.instance.cameraFocusController.ExitFocus();
+            animator.SetTrigger("Open");
         }
         else
         {
