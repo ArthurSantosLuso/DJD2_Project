@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4505996856359131874}
   - component: {fileID: 7484035310821369546}
   - component: {fileID: 8191195968699726472}
+  - component: {fileID: 2948612706856154159}
   - component: {fileID: 1648132362928911656}
   - component: {fileID: 7428959245644859564}
   - component: {fileID: 4290267561446879089}
-  - component: {fileID: 4429181287468983944}
-  - component: {fileID: 2948612706856154159}
+  - component: {fileID: 4869816201629775604}
   m_Layer: 0
-  m_Name: foot
+  m_Name: footDirty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,6 +92,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2948612706856154159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522938110190193747}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.121290796, y: 0.33104995, z: 0.24359955}
+  m_Center: {x: 0.14453077, y: -0.067453325, z: 0.10111228}
 --- !u!114 &1648132362928911656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4442,7 +4463,7 @@ MonoBehaviour:
   interactionSound: {fileID: 8300000, guid: f518f96e409736e43b884c981eea6f68, type: 3}
   _focusPoint: {fileID: 0}
   isOn: 0
---- !u!114 &4429181287468983944
+--- !u!114 &4869816201629775604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4451,34 +4472,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2522938110190193747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c553bb2f6b60948aa0c2c39e8f8183, type: 3}
+  m_Script: {fileID: 11500000, guid: 70a7e386acc797f4990bb55ed3aaafa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceOrder: 0
-  bodyPartToActivate: {fileID: 0}
-  newTagMaterial: {fileID: 0}
-  footTag: {fileID: 3258550124030122953}
---- !u!65 &2948612706856154159
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2522938110190193747}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.121290796, y: 0.33104995, z: 0.24359955}
-  m_Center: {x: 0.14453077, y: -0.067453325, z: 0.10111228}
+  objectClean: {fileID: 0}
 --- !u!1 &3258550124030122953
 GameObject:
   m_ObjectHideFlags: 0

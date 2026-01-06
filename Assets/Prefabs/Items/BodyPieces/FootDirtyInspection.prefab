@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4505996856359131874}
   - component: {fileID: 7484035310821369546}
   - component: {fileID: 8191195968699726472}
-  m_Layer: 0
-  m_Name: footInspection
+  m_Layer: 7
+  m_Name: FootDirtyInspection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6336271101069096369}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 3212752870017328104}
   - component: {fileID: 4664452381006673367}
   - component: {fileID: 3052179514716345112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 3807465469229513914}
   - component: {fileID: 198397840371997879}
   - component: {fileID: 6731246895730806296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
