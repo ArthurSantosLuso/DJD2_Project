@@ -9,6 +9,9 @@ Repository for DJD2 Malebolge game project.
 [hand\_placeholder](https://sketchfab.com/3d-models/hand-046563449b144c67a2f8cc54bf86835b) -- License CC Attribution
 
 [body_assemble_puzzle](https://sketchfab.com/3d-models/low-poly-male-base-slender-9a6fd72aa31540f2a6a8e8d236778a2f) -- License CC Attribution
+https://sketchfab.com/3d-models/water-dispenser-4a1ef4be9c644efa89012933208c9e88
+https://sketchfab.com/3d-models/blue-sofa-ps1-low-poly-315b8551f71b4677afb1279e5863f1f1https://sketchfab.com/3d-models/empty-glass-bottle-low-poly-bc9427fbc79f45bd907b9b5414890bfb
+
 
 ### Audios
 
