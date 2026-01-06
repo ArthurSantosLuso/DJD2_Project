@@ -1,11 +1,12 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
+using System.Collections;
 
 public class InitialElevatorScene : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] private AudioClip elevatorSound;
-    [SerializeField] private AudioClip elevatorOpenSound;
+    [SerializeField] private AudioClip elevatorCloseSound;
     
     void Start()
     {
@@ -19,8 +20,26 @@ public class InitialElevatorScene : MonoBehaviour
         SystemManager.Instance.PauseGame(SystemManager.PauseType.InitialScene);
     }
 
-    private void PlayOpenSound()
+    private void OnTriggerEnter(Collider other)
     {
-        AudioManager.Instance.PlaySound(elevatorOpenSound);    
+        FirstPersonMovement movement = other.GetComponent<FirstPersonMovement>();
+        if (movement != null)
+        {
+            StartCoroutine(CloseDoor(movement));
+        }
+    }
+
+    private IEnumerator CloseDoor(FirstPersonMovement movement)
+    {
+        movement.enabled = false;
+
+        animator.SetTrigger("Close");
+        AudioManager.Instance.PlaySound(elevatorCloseSound);
+
+        yield return new WaitForSeconds(1f);
+
+        movement.enabled = true;
+        SystemManager.Instance.UnpauseGame();
+        enabled = false;
     }
 }

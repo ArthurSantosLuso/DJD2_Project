@@ -78,6 +78,7 @@ public class SystemManager : MonoBehaviour
             Time.timeScale = 1.0f;
             EnablePlayer();
             CursorDisable();
+            ShowUI();
         }
     }
 
