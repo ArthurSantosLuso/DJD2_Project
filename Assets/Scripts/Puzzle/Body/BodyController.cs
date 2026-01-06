@@ -5,6 +5,7 @@ public class BodyController : MonoBehaviour
 {
     [SerializeField] private int totalPieces;
     [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private AudioClip puzzleCorrectAudio;
 
     private List<BodyPiece> placedPieces = new List<BodyPiece>();
 
@@ -40,7 +41,7 @@ public class BodyController : MonoBehaviour
 
     private void CompletePuzzle()
     {
-        Debug.Log("Puzzle Completed!");
+        AudioManager.Instance.PlaySound(puzzleCorrectAudio);
     }
 
     private void ResetPuzzle()

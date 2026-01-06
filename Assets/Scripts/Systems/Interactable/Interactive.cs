@@ -183,6 +183,12 @@ public class Interactive : InteractableBase
             body.PlacePiece(piece);
 
             requirement.SetActive(false);
+
+            ++requirement.GetComponent<Interactive>()._interactionCount;
+
+            requirement.GetComponent<Interactive>().PlayAnimation(_interactionManager.interactAnimationName);
+            
+            CheckRequirements();
             return;
         }
 
