@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0693710fd98b524d971c0540d9ef194, type: 3}
-  m_Name: Foot
+  m_Name: FootClean
   m_EditorClassIdentifier: 
   type: 0
   startsOn: 1
@@ -20,4 +20,4 @@ MonoBehaviour:
   requirementsMessage: 
   interactionMessages:
   - Insert Severed Foot
-  inspectionPrefab: {fileID: 2522938110190193747, guid: ed45255a50aa6d346b6415c78f8dbcf1, type: 3}
+  inspectionPrefab: {fileID: 2522938110190193747, guid: 9886031ffc9b62d47924b53d2791d05e, type: 3}

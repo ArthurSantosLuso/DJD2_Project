@@ -90,6 +90,4 @@ public class InteractionManager : MonoBehaviour
     {
         return _interactPrefix + " " + message;
     }
-
-
 }
