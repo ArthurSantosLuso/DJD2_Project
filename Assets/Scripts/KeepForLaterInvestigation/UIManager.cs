@@ -8,7 +8,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _interactionPanel;
     [SerializeField] private GameObject _inventorySlotsContainer;
     [SerializeField] private GameObject _inventoryIconsContainer;
-    [SerializeField] private GameObject _inventoryMenu;
     [SerializeField] private int        _defaultCrosshairScale;
     [SerializeField] private int        _interactionCrosshairScale;
     [SerializeField] private Color      _unselectedSlotColor;
@@ -36,18 +35,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Inventory") && !menuActivated)
-        {
-            _inventoryMenu.SetActive(true);
-            menuActivated = true;
-            SystemManager.Instance.PauseGame(SystemManager.PauseType.StopEverything);
-        }
-        else if (Input.GetButtonDown("Inventory") && menuActivated)
-        {
-            _inventoryMenu.SetActive(false);
-            menuActivated = false;
-            SystemManager.Instance.UnpauseGame();
-        }
+
     }
 
     public void ShowDefaultCrosshair()

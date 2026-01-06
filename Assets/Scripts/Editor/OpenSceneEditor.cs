@@ -9,7 +9,7 @@ public class OpenSceneEditor : Editor
     {
         OpenScene loader = (OpenScene)target;
 
-        // Pega todas as scenes do Build Settings
+        
         var scenes = EditorBuildSettings.scenes;
         string[] sceneNames = new string[scenes.Length];
 
@@ -18,14 +18,14 @@ public class OpenSceneEditor : Editor
             sceneNames[i] = System.IO.Path.GetFileNameWithoutExtension(scenes[i].path);
         }
 
-        // Dropdown
+        
         loader.sceneIndex = EditorGUILayout.Popup(
             "Scene",
             loader.sceneIndex,
             sceneNames
         );
 
-        // Atualiza o Inspector corretamente
+        
         if (GUI.changed)
         {
             EditorUtility.SetDirty(loader);
