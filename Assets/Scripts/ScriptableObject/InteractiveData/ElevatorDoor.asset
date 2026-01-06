@@ -10,18 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0693710fd98b524d971c0540d9ef194, type: 3}
-  m_Name: Body
+  m_Name: ElevatorDoor
   m_EditorClassIdentifier: 
   type: 3
   startsOn: 1
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirements:
-  - {fileID: 11400000, guid: ff0d54674c1997143aa4362fed8bed10, type: 2}
-  - {fileID: 11400000, guid: fec3249a14a719b4885d503e454e099d, type: 2}
-  - {fileID: 11400000, guid: 176b008f8b6f02f438b297a43c3877a5, type: 2}
-  - {fileID: 11400000, guid: 35bf7e206983d774597a697311705c41, type: 2}
-  - {fileID: 11400000, guid: 4639207c4e33ac04090c0d2e165630c9, type: 2}
-  requirementsMessage: 
+  - {fileID: 11400000, guid: d26e3322ea8c5b7499d29ba646218180, type: 2}
+  requirementsMessage: Locked
   interactionMessages: []
   inspectionPrefab: {fileID: 0}

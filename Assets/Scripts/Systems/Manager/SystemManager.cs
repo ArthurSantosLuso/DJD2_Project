@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SystemManager : MonoBehaviour
 {
-    public enum PauseType { StopEverything, Inspection, FocusObject, PhonePause }
+    public enum PauseType { StopEverything, Inspection, FocusObject, PhonePause, InitialScene }
 
     private static SystemManager _instance;
 
@@ -54,6 +54,13 @@ public class SystemManager : MonoBehaviour
 
     public void PauseGame(PauseType pauseType)
     {
+        if(pauseType == PauseType.InitialScene)
+        {
+            playerInteractor.enabled = false;
+            DisableUI();
+            return;
+        }
+
         if (pauseType == PauseType.StopEverything)
             Time.timeScale = 0f;
         DisablePlayer(pauseType);

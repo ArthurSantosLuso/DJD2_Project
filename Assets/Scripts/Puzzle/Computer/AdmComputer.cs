@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 public class AdmComputer : MonoBehaviour
 {
@@ -19,6 +21,9 @@ public class AdmComputer : MonoBehaviour
     [SerializeField] private RegularComputer computerToBeUnlocked;
     [SerializeField] private DrawerController drawerToBeUnlocked;
 
+    [Header("Items to be removed when puzzle's over")]
+    [SerializeField] private List<Interactive> itemsRemove;
+
     [Header("Audio")]
     [SerializeField] private AudioClip accessDeniedAudio;
 
@@ -33,6 +38,7 @@ public class AdmComputer : MonoBehaviour
         {
             drawerToBeUnlocked.UnlockDrawer();
             Debug.Log("Acertou a password!");
+            RemoveItems();
             desktopPanel.SetActive(true);
             passwordPanel.SetActive(false);
         }
@@ -69,5 +75,13 @@ public class AdmComputer : MonoBehaviour
         yield return new WaitForSeconds(seconds);
 
         inputPasswordButton.enabled = true;
+    }
+
+    private void RemoveItems()
+    {
+        foreach (Interactive interactive in itemsRemove)
+        {
+            InteractionManager.instance.playerInventory.Remove(interactive);
+        }
     }
 }
