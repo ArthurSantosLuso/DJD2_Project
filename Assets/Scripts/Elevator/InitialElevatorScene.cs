@@ -7,7 +7,8 @@ public class InitialElevatorScene : MonoBehaviour
     private Animator animator;
     [SerializeField] private AudioClip elevatorSound;
     [SerializeField] private AudioClip elevatorCloseSound;
-    
+    [SerializeField] private GameObject endGameTrigger;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -40,6 +41,7 @@ public class InitialElevatorScene : MonoBehaviour
 
         movement.enabled = true;
         SystemManager.Instance.UnpauseGame();
+        endGameTrigger.SetActive(true);
         enabled = false;
     }
 }

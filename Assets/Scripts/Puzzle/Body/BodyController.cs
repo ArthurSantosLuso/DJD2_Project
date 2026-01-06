@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BodyController : MonoBehaviour
 {
+    [SerializeField] private Interactive puzzleBody;
     [SerializeField] private int totalPieces;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private AudioClip puzzleCorrectAudio;
@@ -20,6 +22,8 @@ public class BodyController : MonoBehaviour
         if (placedPieces.Count == totalPieces)
             ValidadePuzzle();
     }
+
+
 
     private void ValidadePuzzle()
     {
@@ -41,6 +45,7 @@ public class BodyController : MonoBehaviour
 
     private void CompletePuzzle()
     {
+        puzzleBody.CompleteAsRequirement();
         AudioManager.Instance.PlaySound(puzzleCorrectAudio);
     }
 
@@ -64,6 +69,4 @@ public class BodyController : MonoBehaviour
     }
 
     public List<BodyPiece> GetPlacedPieces() => placedPieces;
-
-
 }

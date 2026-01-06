@@ -22,6 +22,8 @@ public class Interactive : InteractableBase
     public string inventoryName => _interactiveData.inventoryName;
     public Sprite inventoryIcon => _interactiveData.inventoryIcon;
 
+    public List<Interactive> requirements => _requirements;
+
     void Awake()
     {
         _interactionManager = InteractionManager.instance;
@@ -181,14 +183,6 @@ public class Interactive : InteractableBase
         {
             BodyController body = GetComponent<BodyController>();
             body.PlacePiece(piece);
-
-            requirement.SetActive(false);
-
-            ++requirement.GetComponent<Interactive>()._interactionCount;
-
-            requirement.GetComponent<Interactive>().PlayAnimation(_interactionManager.interactAnimationName);
-            
-            CheckRequirements();
             return;
         }
 
@@ -239,5 +233,15 @@ public class Interactive : InteractableBase
     public void LoseFocus()
     {
         OnLoseFocus(interactable);
+    }
+
+    public void CompleteAsRequirement()
+    {
+        _interactionCount = 1;
+        _requirementsMet = true;
+
+        PlayAnimation(_interactionManager.interactAnimationName);
+
+        CheckDependentsRequirements();
     }
 }
