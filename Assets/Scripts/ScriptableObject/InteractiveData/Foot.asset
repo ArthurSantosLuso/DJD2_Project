@@ -20,4 +20,4 @@ MonoBehaviour:
   requirementsMessage: 
   interactionMessages:
   - Insert Severed Foot
-  inspectionPrefab: {fileID: 5512127454812324142, guid: b968431f41a2b554f901c382c5b1c4a7, type: 3}
+  inspectionPrefab: {fileID: 2522938110190193747, guid: ed45255a50aa6d346b6415c78f8dbcf1, type: 3}

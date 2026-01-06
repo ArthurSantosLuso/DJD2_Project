@@ -18,7 +18,7 @@ MonoBehaviour:
   inventoryIcon: {fileID: 0}
   requirements:
   - {fileID: 11400000, guid: 163bf5b6a1de450488b2985099a07d4d, type: 2}
-  - {fileID: 11400000, guid: ff0d54674c1997143aa4362fed8bed10, type: 2}
+  - {fileID: 11400000, guid: 76f431774b5dc2c40ac085f1d2ae648a, type: 2}
   requirementsMessage: I don't need to clean anything now
   interactionMessages:
   - 

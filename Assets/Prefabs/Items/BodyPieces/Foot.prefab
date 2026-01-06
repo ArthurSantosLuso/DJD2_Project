@@ -4456,6 +4456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceOrder: 0
   bodyPartToActivate: {fileID: 0}
+  newTagMaterial: {fileID: 0}
+  footTag: {fileID: 3258550124030122953}
 --- !u!65 &2948612706856154159
 BoxCollider:
   m_ObjectHideFlags: 0
