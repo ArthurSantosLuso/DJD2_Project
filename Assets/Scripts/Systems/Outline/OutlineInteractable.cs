@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(OutlineMeshCombiner))]
+[RequireComponent(typeof(Outline))]
 public class OutlineInteractable : MonoBehaviour
 {
-    private OutlineMeshCombiner outline;
+    private Outline outline;
 
     private void Awake()
     {
-        outline = GetComponent<OutlineMeshCombiner>();
+        outline = GetComponent<Outline>();
         outline.enabled = false;
     }
 
