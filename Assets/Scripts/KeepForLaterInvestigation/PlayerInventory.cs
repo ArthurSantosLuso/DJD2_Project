@@ -10,13 +10,14 @@ public class PlayerInventory : MonoBehaviour
     private PlayerInteractor    _playerInteractor;
     private List<GameObject>    _inventory;
     private int                 _selectedSlotIndex;
+    private bool                _initializedStartingItems;
 
     void Start()
     {
         _playerInteractor  = GetComponent<PlayerInteractor>();
         _inventory          = new List<GameObject>();
-        AddStartingItems(_startingItems);
         _selectedSlotIndex  = 0;
+        _initializedStartingItems = false;
     }
 
     public void Add(Interactive item)
@@ -78,6 +79,9 @@ public class PlayerInventory : MonoBehaviour
 
     void Update()
     {
+        if(!_initializedStartingItems)
+            AddStartingItems(_startingItems);
+
         CheckForPlayerSlotSelection();
 
         if (_selectedSlotIndex != -1
@@ -100,5 +104,7 @@ public class PlayerInventory : MonoBehaviour
         {
             Add(interactive);
         }
+
+        _initializedStartingItems = true;
     }
 }
