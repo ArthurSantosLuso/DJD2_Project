@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 421713336742949375}
   - component: {fileID: 5058768335942010557}
   - component: {fileID: 1046129116505941825}
+  - component: {fileID: 7402442472509871640}
   m_Layer: 0
   m_Name: Finger
   m_TagString: Untagged
@@ -68,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 00ab5512830f6c3469b00b5e24fb07ab, type: 2}
+  - {fileID: 2100000, guid: baaa5f1794a981c449f0fbe45131dfcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -557,3 +558,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08, y: 0.08, z: 0.08}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7402442472509871640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495592508557396698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c553bb2f6b60948aa0c2c39e8f8183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceOrder: 0
+  bodyPartToActivate: {fileID: 0}

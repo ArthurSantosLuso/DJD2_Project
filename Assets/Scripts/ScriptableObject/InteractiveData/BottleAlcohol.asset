@@ -18,5 +18,6 @@ MonoBehaviour:
   inventoryIcon: {fileID: 21300000, guid: baac38db0f989dc41b8c632c62abdc5d, type: 3}
   requirements: []
   requirementsMessage: 
-  interactionMessages: []
-  inspectionPrefab: {fileID: 3166212739619626565, guid: ecb0bca1ab704eb4cb3ddf3a8a70abe1, type: 3}
+  interactionMessages:
+  - Clean leg
+  inspectionPrefab: {fileID: 3166212739619626565, guid: 130d7ab76a6acc54cb32ee543d747faf, type: 3}

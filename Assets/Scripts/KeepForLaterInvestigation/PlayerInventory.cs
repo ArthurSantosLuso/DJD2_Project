@@ -5,6 +5,7 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private UIManager          _uiManager;
     [SerializeField] private InspectionSystem _inspectionSystem;
+    [SerializeField] private List<Interactive> _startingItems;
 
     private PlayerInteractor    _playerInteractor;
     private List<GameObject>    _inventory;
@@ -14,7 +15,8 @@ public class PlayerInventory : MonoBehaviour
     {
         _playerInteractor  = GetComponent<PlayerInteractor>();
         _inventory          = new List<GameObject>();
-        _selectedSlotIndex  = -1;
+        AddStartingItems(_startingItems);
+        _selectedSlotIndex  = 0;
     }
 
     public void Add(Interactive item)
@@ -90,5 +92,13 @@ public class PlayerInventory : MonoBehaviour
         for (int i = 0; i < _inventory.Count; ++i)
             if (Input.GetKeyDown(KeyCode.Alpha1 + i) && i != _selectedSlotIndex)
                 SelectInventorySlot(i);
+    }
+
+    private void AddStartingItems(List<Interactive> startingItems)
+    {
+        foreach (Interactive interactive in startingItems)
+        {
+            Add(interactive);
+        }
     }
 }

@@ -205,7 +205,7 @@ public class Outline : MonoBehaviour
         if (mesh.subMeshCount == 1) return;
 
         if (mesh.subMeshCount > materials.Length) return;
-        
+
         mesh.subMeshCount++;
         mesh.SetTriangles(mesh.triangles, mesh.subMeshCount - 1);
     }
