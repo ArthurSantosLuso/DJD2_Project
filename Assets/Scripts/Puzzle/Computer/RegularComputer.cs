@@ -91,7 +91,7 @@ public class RegularComputer : MonoBehaviour
 
     private IEnumerator PlayPhoneSound(AudioClip audio, float timeBeforeStart = 0.5f)
     {
-        titleText.text = "Listenning...";
+        titleText.text = "Listening...";
         SystemManager.Instance.PauseGame(SystemManager.PauseType.PhonePause);
         positiveButton.enabled = false;
         negativeButton.enabled = false;
