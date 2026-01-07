@@ -4,14 +4,17 @@ Repository for DJD2 Malebolge game project.
 
 ### Assets Used
 
-[id\_card\_placeholder ](https://sketchfab.com/3d-models/gorilla-tag-id-card-a96c3870ed5f41608526e6e6248c7a8c) -- License CC Attribution
-
-[hand\_placeholder](https://sketchfab.com/3d-models/hand-046563449b144c67a2f8cc54bf86835b) -- License CC Attribution
-
 [body_assemble_puzzle](https://sketchfab.com/3d-models/low-poly-male-base-slender-9a6fd72aa31540f2a6a8e8d236778a2f) -- License CC Attribution
-https://sketchfab.com/3d-models/water-dispenser-4a1ef4be9c644efa89012933208c9e88
-https://sketchfab.com/3d-models/blue-sofa-ps1-low-poly-315b8551f71b4677afb1279e5863f1f1https://sketchfab.com/3d-models/empty-glass-bottle-low-poly-bc9427fbc79f45bd907b9b5414890bfb
 
+[water_dispenser](https://sketchfab.com/3d-models/water-dispenser-4a1ef4be9c644efa89012933208c9e88) -- License CC Attribution
+
+[couch](https://sketchfab.com/3d-models/blue-sofa-ps1-low-poly-315b8551f71b4677afb1279e5863f1f1https://sketchfab.com/3d-models/empty-glass-bottle-low-poly-bc9427fbc79f45bd907b9b5414890bfb) -- License CC Attribution
+
+[keyboard](https://sketchfab.com/3d-models/keyboard-low-qualty-texture-w-ppo-3e9ed4020f7f4784ae8a4bc9f65bc2b0) -- License CC Attribution
+
+[mouse](https://sketchfab.com/3d-models/low-poly-computer-mouse-free-bd0176444b9043ccbcf82e9e27346c78) -- License CC Attribution
+
+[LiquidBottle](https://sketchfab.com/3d-models/empty-glass-bottle-low-poly-bc9427fbc79f45bd907b9b5414890bfb) -- License CC Attribution
 
 ### Audios
 
@@ -20,6 +23,8 @@ https://sketchfab.com/3d-models/blue-sofa-ps1-low-poly-315b8551f71b4677afb1279e5
 [contract\_inspect\_intro\_v1](https://pixabay.com/sound-effects/paper-flutter-5933/) -- License CC0
 
 [pick\_arm\_sfx\_v1](https://pixabay.com/sound-effects/hit-flesh-03-266308/) -- License CC0
+
+
 
 
 
