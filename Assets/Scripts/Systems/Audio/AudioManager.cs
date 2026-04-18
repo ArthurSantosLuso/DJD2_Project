@@ -1,8 +1,13 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioClip sceneMusic;
+    [Range(0, 1)][SerializeField] private float musicVolume = 0.09f;
+
     private static AudioManager _instance;
 
     public static AudioManager Instance
@@ -26,6 +31,11 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {            
+        PlayMusic(sceneMusic);
+    }
+
     private void Init()
     {
         _instance = this;
@@ -44,6 +54,21 @@ public class AudioManager : MonoBehaviour
             audioSource = CreateNewAudioSource();
         }
             audioSource.PlayOneShot(audio);
+    }
+
+    public void PlayMusic(AudioClip audio)
+    {
+        AudioSource audioSource;
+        CheckForFreeAudioSource(out audioSource);
+
+        if (audioSource == null)
+        {
+            audioSource = CreateNewAudioSource();
+        }
+        audioSource.volume = musicVolume;
+        audioSource.loop = true;
+        audioSource.clip = audio;
+        audioSource.Play();
     }
 
     public void CheckForFreeAudioSource(out AudioSource source)
