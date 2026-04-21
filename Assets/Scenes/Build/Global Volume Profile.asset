@@ -176,11 +176,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.76
   contrast:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1.65
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1.187148, g: 1.061838, b: 0.45507345, a: 1}
@@ -202,26 +202,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   skipIterations:
     m_OverrideState: 1
     m_Value: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 10.9
   intensity:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 0.17
   scatter:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.33
   clamp:
     m_OverrideState: 0
     m_Value: 65472
   tint:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0, g: 0.05267798, b: 0.9245283, a: 1}
   highQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 1
+  filter:
     m_OverrideState: 1
     m_Value: 1
   downscale:
