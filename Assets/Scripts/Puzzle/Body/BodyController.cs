@@ -8,16 +8,31 @@ public class BodyController : MonoBehaviour
     [SerializeField] private int totalPieces;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private AudioClip puzzleCorrectAudio;
+    [SerializeField] private AudioClip insertPieceAudio;
+
+    [SerializeField] private List<GameObject> piecesStartUpForOutline;
 
     private List<BodyPiece> placedPieces = new List<BodyPiece>();
 
+    private void Start()
+    {
+        foreach (GameObject piece in piecesStartUpForOutline)
+        {
+            piece.SetActive(false);
+        }
+
+        piecesStartUpForOutline.Clear();
+    }
+
     public void PlacePiece(BodyPiece piece)
     {
-        placedPieces.Add(piece);
+        AudioManager.Instance.PlaySound(insertPieceAudio);
         
+        placedPieces.Add(piece);
         playerInventory.Remove(piece.GetComponent<Interactive>());
 
         piece.BodyPart.SetActive(true);
+
 
         if (placedPieces.Count == totalPieces)
             ValidadePuzzle();
