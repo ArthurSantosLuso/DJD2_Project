@@ -8,6 +8,7 @@ public class DrawerController : MonoBehaviour
 {
     [SerializeField] private bool isLocked;
     [SerializeField] private bool isOpen;
+    [SerializeField] private GameObject VFX;
 
     private AudioClip   openAudio;
     private AudioClip   closeAudio;
@@ -42,6 +43,7 @@ public class DrawerController : MonoBehaviour
 
     public void UnlockDrawer()
     {
+        VFX?.SetActive(false);
         isLocked = false;
         animator.SetBool("isLocked", isLocked);
         AudioManager.Instance.PlaySound(unlockAudio);
